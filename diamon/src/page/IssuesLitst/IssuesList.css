@@ -1,0 +1,555 @@
+.BackgroundIssuesList {
+    position:fixed;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    background-color: #FAFAFA;
+}
+
+.BackGroundContainerIssuesLeft {
+    position:absolute;
+    width: 60%;
+    height: 100%;
+    float: left;
+    background-color: #FAFAFA;
+}
+
+.BackGroundContainerIssuesright {
+    position:fixed;
+    width: 500px;
+    height: 100%;
+    float: right;
+    overflow: auto;
+    right: 0;
+    background-color: #FAFAFA;
+}
+
+.NavbarIssues {
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    width: 90%;
+    height: 50px;
+}
+
+.NavbarIssuesBackgroundItem {
+    background: linear-gradient(180deg, #8BD5D3 0%, #0912EA 48.75%, #B856B8 100%);
+    width: 120px;
+    height: 35px;
+    margin-left: 15px;
+    margin-top: 10px;
+    float: left;
+    border-radius: 2px;
+}
+
+.NavbarIssuesItemActiva {
+    background-color: rgb(250, 250, 250);
+    ;
+    width: 118px;
+    height: 33px;
+    margin-top: 1px;
+    margin-left: 1px;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.NavbarIssuesItem {
+    background-color: rgb(250, 250, 250);
+    ;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.BackGroundSeachIssues {
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 828px;
+    height: 145px;
+    background: linear-gradient(93.51deg, #8BD5D3 0.17%, #0912EA 48.76%, #B856B8 99.34%),
+        linear-gradient(0deg, #FFFFFF, #FFFFFF);
+}
+
+.SeachIssues {
+    margin: 1px;
+    border-radius: 5px;
+    width: 825px;
+    height: 143px;
+    background: #FFFFFF;
+    float: left;
+}
+
+.SeackAvatarIssues {
+    width: 45px;
+    height: 45px;
+    margin: 5px;
+    float: left;
+}
+
+.InputBackGrpundIssues {
+    margin: 10px;
+    float: left;
+}
+
+.SeachIssuesTitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: #787B7C;
+    margin-left: 20px;
+}
+
+.inputIsuesbackground {
+    width: 750px;
+}
+
+.PlaceholderIcon {
+    width: 25px;
+    height: 25px;
+}
+
+.PlaceholderIconBackground {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 7px;
+}
+
+.InputSeachIssues {
+    width: 700px;
+    border: 0;
+    outline: none;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    background: linear-gradient(90.38deg, #8BD5D3 7.1%, rgba(9, 18, 234, 0.57) 35.83%, #B856B8 79.83%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.LineSeachIssues {
+    border: 0.5px solid;
+    border-image: linear-gradient(90deg, #8BD5D3 -6.41%, #0912EA 42.86%, #B856B8 100.36%);
+    border-image-slice: 1;
+}
+
+.IconNavberIssuesFooter {
+    margin-left: 40px;
+}
+
+.seachIconIssuesFooter {
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.BtnSeachIssues {
+    background: linear-gradient(97.84deg, rgba(139, 213, 211, 0.64) 13.05%, rgba(9, 18, 234, 0.42) 59.03%, rgba(184, 86, 184, 0.43) 97.61%);
+    width: 95px;
+    height: 35px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    float: right;
+    margin-right: 20px;
+    border-radius: 35px;
+    line-height: 35px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.IssuesHeader {
+    width: 100%;
+    height: 60px;
+}
+
+
+.BackgroundIssues {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 828px;
+    background-image: linear-gradient(180deg, #8BD5D3 0%, #0912EA 48.75%, #B856B8 100%);
+    background-repeat: no-repeat;
+    background-size:contain;
+    padding: 0.5px;
+    border-radius: 5px;
+}
+
+.IssuesContainer {
+    background-color: #ffffff;
+    width: 825px;
+    margin: 1px;
+    padding: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.IssuesAvatarUser {
+    margin: 5px;
+    margin-top: 1px;
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.UserNameIssues {
+    font-size: 15px;
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+.DobIssues {
+    font-size: 14px;
+    font-weight: 600;
+    color: #787B7C;
+    margin-bottom: 5px;
+}
+
+.LineSeachIssues1 {
+    border: 0.5px solid;
+    border-image: linear-gradient(90deg, #8bd5d266 -6.41%, #0910ea57 42.86%, #b856b867 100.36%);
+    border-image-slice: 1;
+    width: 750px;
+}
+
+.CategoryIssuesName {
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 60px;
+    margin-top: 10px;
+    color: #787B7C;
+}
+
+.CategoryIssuesTitle {
+    width: 700px;
+    margin-left: 60px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.ImageIssues{
+    width: 700px;
+    height: 350px;
+    margin-left: 60px;
+}
+
+.LineSeachIssues2{
+    border: 0.5px solid;
+    border-image: linear-gradient(90deg, #8bd5d235 -6.41%, #0910ea2a 42.86%, #b856b828 100.36%);
+    border-image-slice: 1;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ReplyBackground{
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 60px;
+    float: left;
+}
+
+.ReplyNumber{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.ReplyTitle{
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 5px;
+    line-height: 20px;
+    color: #787B7C;
+}
+
+.ReplyIcon{
+    width: 30px;
+    height: 30px;
+    margin-left: 90px;
+    cursor: pointer;
+}
+
+.ShareIcon{
+    width: 30px;
+    height: 30px;
+    margin-left: 130px;
+    cursor: pointer;
+}
+
+.LineSeachIssues3{
+    border: 0.5px solid;
+    border-image: linear-gradient(90deg, #8bd5d294 -6.41%, #0910ea88 42.86%, #b856b885 100.36%);
+    border-image-slice: 1;
+    margin-bottom: 10px;
+}
+
+.BackgroundCmt{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.BackgroundIconUser{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    padding-top: 10px;
+    float: left;
+}
+
+.HeaderCmt{
+    width: 100%;
+    height: 60px;
+}
+
+.IconUserCmt{
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+.CmtTitleHeader{
+    width: 200px;
+    line-height: 25px;
+    padding-top: 5px;
+    float: left;
+    margin-left: 10px;
+}
+
+.CmtUserName{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.CmtDate{
+    font-size: 15px;
+    font-weight: 600;
+    color: #787B7C;
+}
+
+.BackgroundDetailCmt{
+    background-color: #0912EA;
+    width: 700px;
+    margin-left: 60px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-image: linear-gradient(268.85deg, #8BD5D3 0.12%, #0912EA 31.9%, #FF00F5 98.41%);
+    background-repeat: no-repeat;
+    background-size:contain;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+.DetailCmtcontainer{
+    background-color: #FAFAFA;
+    width: 698px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+}
+
+.CmtImageBachground{
+    width: 600px;
+    margin: 0 auto;
+}
+
+.CmtImage{
+    width: 600px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.CmtTital{
+    font-size: 15px;
+    font-weight: 600;
+    margin: 1px;
+    padding: 5px;
+    padding-left: 45px;
+}
+
+.btnReplyCmt{
+    font-size: 15px;
+    font-weight: 800;
+    margin: 5px;
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+.FooterIssuesLeft{
+    width: 100%;
+    height: 50px;
+}
+
+.SeachUserIssues{
+    background-color: #ffffff;
+    width: 450px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 0 auto;
+}
+
+.IconSeachUserIssues{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    float: left;
+}
+
+.inputSeachUserIssues{
+    width: 350px;
+    height: 30px;
+    margin-top: 10px;
+    color: #8AACC5;
+    font-size: 15px;
+    padding-left: 10px;
+    border: 0;
+    outline: none;
+}
+
+.BackgroundProfileManage{
+    background-color: #ffffff;
+    width: 450px;
+    height: 130px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.AvatarProfileManage{
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    float: left;
+}
+
+.ProfileManageTitle{
+    font-size: 15px;
+    font-weight: 600;
+    margin: 15px;
+    padding-top: 10px;
+}
+
+.ContainerItemprofile{
+    margin-left: 10px;
+    float: left;
+}
+
+.ProfileManageItem{
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.BackGroundIssuesContact{
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 450px;
+    border-radius: 5px;
+    border: 2px solid #B6B8BA;
+}
+
+.ContactIssuesTite{
+    font-size: 15px;
+    font-weight: 700 ;
+    margin: 5px;
+}
+
+.TitleIssuesContactItem{
+    font-size: 12px;
+    font-weight: 600;
+    color: #575757;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.IconCallIssues{
+    width: 20px;
+    height: 20px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.IconMessageIssues{
+    width: 20px;
+    height: 20px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.IconMessageIssues2{
+    width: 20px;
+    height: 20px;
+    margin-left: 58px;
+    cursor: pointer;
+}
+
+.IconMessageIssues3{
+    width: 20px;
+    height: 20px;
+    margin-left: 53px;
+    cursor: pointer;
+}
+
+.IssuesContacContainer{
+    border-bottom: 2px solid #B6B8BA;
+}
+
+.TitleRoomList{
+    width: 150px;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    float: left;
+}
+
+.IconContactRoomlist{
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.HeaderRoomList{
+    width: 100%;
+    height: 45px;
+}
+
+.listUserRoom{
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+.BackgorundRoomlist{
+    padding-bottom: 10px;
+    border-bottom: 2px solid #B6B8BA;
+}
+
+
+.IssuesConatuner{
+    position:relative;
+    margin-bottom: 20px;
+    padding: 20px;
+}

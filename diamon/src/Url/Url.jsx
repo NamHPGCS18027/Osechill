@@ -1,0 +1,1 @@
+export const Url = process.env.NODE_ENV !== 'production' ? 'https://localhost:7175' : 'https://localhost:7175'

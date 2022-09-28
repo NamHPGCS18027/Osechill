@@ -1,0 +1,79 @@
+.modalBackgroundRestore{
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    top: 0;
+    height: 100vh;
+    width: calc(100%);
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContainerRestore{
+    position: relative;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #efefef;
+    padding: 5px;
+    width: 600px;
+    height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+}
+
+.closemodelRestore{
+    width: 20px;
+    height: 20px;
+    float:right;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.restoreTitle1{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.restoreTitle2{
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.CancelRestorebtnuser{
+    background-color: #FAFAFA;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 600;
+    float: left;
+
+    border: 3px solid transparent;
+
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+
+    border-image-slice: 1;
+    cursor: pointer;
+    margin-top: 35px;
+    margin-left: 40px;
+}
+
+.Restorebtnuser{
+    background: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    color: #FAFAFA;
+    float: left;
+    margin-top: 35px;
+    margin-left: 40px;
+    cursor: pointer;
+}

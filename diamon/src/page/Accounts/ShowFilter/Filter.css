@@ -1,0 +1,101 @@
+.modalContainerfilter{
+    position: fixed;
+    right: 0;
+    background-color: #FAFAFA;
+    width: 400px;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.5s; */
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+}
+
+.closeFilter{
+    float: right;
+    margin: 20px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.filterAge{
+    margin-top: 65px;
+    height: 25%;
+}
+
+.filterGender{
+    height: 20%;
+}
+
+.filterRole{
+    height: 30%;
+}
+
+.btnFilter{
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    margin: 10px;
+    border: 1px solid #00000044;
+    cursor: pointer;
+}
+
+.btnFilterRole{
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    margin: 10px;
+    border: 1px solid #00000044;
+    cursor: pointer;
+}
+
+.titlefilter{
+    font-size: 20px;
+    font-weight: 600;
+    color: #3D3B46;
+    margin-left: 30px;
+}
+
+.searchfilter{
+    width: 250px;
+    margin: 0 auto;
+}
+
+.Cancelbtnfilter {
+    background-color: #FAFAFA;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 600;
+    float: left;
+
+    border: 3px solid transparent;
+
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+
+    border-image-slice: 1;
+    cursor: pointer;
+
+}
+
+.Createbtnfilter {
+    background: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    color: #FAFAFA;
+    float: left;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.searchbtnfilter{
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 300px;
+    height: 50px;
+}

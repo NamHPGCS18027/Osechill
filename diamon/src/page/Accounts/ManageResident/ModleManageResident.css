@@ -1,0 +1,186 @@
+.BackGroundResident{
+    position: fixed;
+    z-index: 2;
+    background-color: #FAFAFA;
+    top:0;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+}
+
+.TitleResidentHeader{
+    font-size: 18px;
+    font-weight: 700;
+    float: left;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.IconCloseResident{
+    width: 30px;
+    height: 30px;
+    margin-right: 100px;
+    margin-top: 10px;
+    float: right;
+    cursor: pointer;
+}
+
+.ResidentHeaderBackground{
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+}
+
+.TitleResidentBody{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.inputFullNameResidentBackGround{
+    width: 300px;
+    margin: 20px;
+    margin-left: 40px;
+    float: left;
+}
+
+.titleFullName{
+    font-size: 12px;
+    color: rgba(153, 154, 166, 1);
+}
+
+.inputFullNameResident{
+    width: 300px;
+    border: 0;
+    outline: none;
+    background-color: #FAFAFA;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.lineFullName{
+    width: 300px;
+    height: 1px;
+    background-color: rgba(153, 154, 166, 1);
+}
+
+.inputIDNumberResidentBackGround{
+    width: 250px;
+    margin: 20px;
+    margin-left: 30px;
+    float: left;
+}
+
+.titleIdnumber{
+    font-size: 12px;
+    color: rgba(153, 154, 166, 1);
+}
+
+.inputIDNumberResident{
+    width: 250px;
+    border: 0;
+    outline: none;
+    background-color: #FAFAFA;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.lineNumber{
+    width: 250px;
+    height: 1px;
+    background-color: rgba(153, 154, 166, 1);
+}
+
+.inputPhonenumberResidentBackground{
+    width: 150px;
+    margin: 20px;
+    margin-left: 30px;
+    float: left;
+}
+
+.titlePhonenumber{
+    font-size: 12px;
+    color: rgba(153, 154, 166, 1);
+}
+
+.inputPhonenumberResident{
+    width: 150px;
+    border: 0;
+    outline: none;
+    background-color: #FAFAFA;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.linePhone{
+    width: 150px;
+    height: 1px;
+    background-color: rgba(153, 154, 166, 1);
+}
+
+.inputAllnumberResidentBackground{
+    width: 250px;
+    margin: 20px;
+    margin-left: 30px;
+    float: left;
+}
+
+.inputAllnumberResident{
+    width: 250px;
+    border: 0;
+    outline: none;
+    background-color: #FAFAFA;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.lineAllphone{
+    width: 250px;
+    height: 1px;
+    background-color: rgba(153, 154, 166, 1);
+}
+
+.SearchResident{
+    background: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    width: 125px;
+    height: 45px;
+    float: right;
+    margin-right: 125px;
+    margin-top: 10px;
+    color: #ffff;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+.SeachResident{
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.TableHeader{
+    padding-left: 40px;
+}
+
+.notfoundbackground{
+    margin: 40px;
+}
+
+.notfoundHeader{
+    font-size: 40px;
+}
+
+.notfoundbody{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(153, 154, 166, 1);
+    ;
+}

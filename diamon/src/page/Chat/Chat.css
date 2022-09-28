@@ -1,0 +1,395 @@
+
+.chatcontaineruser{
+    position:fixed;
+    background-color: #f0f0f0fd;
+    width: 455px;
+    height: 100%;
+    float: left;
+}
+
+.headerchat{
+    height: 70px;
+}
+
+.chatcontainer{
+    position:fixed;
+    background: #F5F5F5;
+    width: 100%;
+    /* width: 71%; */
+    height: 100%;
+    margin-left: 455px;
+    float: left;
+}
+
+.seachbackground{
+    background-color: #ffffff;
+    width: 340px;
+    float: left;
+    margin: 10px;
+    margin-left: 20px;
+    border-radius: 30px;
+}
+
+.contactbackground{
+    background: #FAFAFA;
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin: 10px;
+    margin-right: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.iconSeachchat{
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    margin-left: 25px;
+    float: left;
+}
+
+.iconContacts{
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+
+.inputseachchat{
+    float: left;
+    width: 280px;
+    border-radius: 0 30px 30px 0;
+    height: 40px;
+    border: 0 solid #4B4948;
+    outline: none;
+}
+
+.iconcall{
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+.iconMess{
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+.backgroungcontacts{
+    background-color: #ffffff;
+    width: 420px;
+    height: 180px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.contacttitle{
+    font-size: 15px;
+    font-weight: 900;
+    width: 100px;
+    height: 30px;
+    margin-left: 15px;
+    line-height: 45px;
+}
+
+.chatbody{
+    width: 100%;
+}
+
+.titilecontacticon{
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 40px;
+    color: #575757;
+}
+
+.ItemContacts{
+    margin-top: 16px;
+}
+
+.dropDown{
+    width: 150px;
+    margin-left: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.dropDownImg{
+    width: 15px;
+    height: 15px;
+}
+
+.dropDownTitle{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.userchaticon{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 5px;
+}
+
+.backGroundUserChat{
+    background-color: #ffffff;
+    width: 420px;
+    height: 60px;
+    margin: 0 auto;
+    margin-top: 3px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.userNameChat{
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+    color: #4B4948;
+}
+
+.dateUserChat{
+    font-size: 12px;
+    font-weight: 700;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #4B4948;
+}
+
+.ChatUserHeader{
+    height: 30px;
+}
+
+.Chattext{
+    width: 250px;
+    font-size: 10px;
+    margin-left: 60px;
+    color: #4B4948;
+}
+
+.backgroundChatUserHeader{
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.258) ;
+}
+
+.IconHeaderUserImg{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    float: left;
+}
+
+.UserChatItem{
+    margin: 10px;
+    margin-top: 15px;
+    float: left;
+}
+
+.itemchat{
+    float: left;
+    width: 150px;
+    height: 60px;
+    margin-left: 25px;
+}
+
+.ChatHeaderItemName{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.ChatHeaderItemProfile{
+    font-size: 12px;
+    font-weight: 700;
+    color: #8C8C8C;
+}
+
+.BackGroundChatUser{
+    width: 48px;
+    height: 50px;
+    margin: 5px;
+    float: left;
+    background: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+
+}
+
+.BackGroundButtonChat1{
+    width: 48px;
+    height: 47px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #f6f6f6;
+    cursor: pointer;
+}
+
+.BackGroundButtonChat{
+    width: 48px;
+    height: 50px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 60px;
+    background-color: #f6f6f6;
+    cursor: pointer;
+}
+
+.BackGroundButtonChat:hover {
+    height: 47px;
+}
+
+.BackGroundIconChatHeader{
+    float: right;
+    margin: 15px;
+    margin-right: 570px;
+    width: 100px;
+    height: 45px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(139, 213, 211, 0.3) 0%, rgba(9, 18, 234, 0.3) 33.12%, rgba(184, 86, 184, 0.3) 100%);
+}
+
+.BackGroundIconVideo{
+    width: 48px;
+    height: 43px;
+    background-color: #FAFAFA;
+    float: left;
+    margin: 1px;
+    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
+    cursor: pointer;
+}
+
+.BackGroundIconPhone{
+    width: 48px;
+    height: 43px;
+    background-color: #FAFAFA;
+    float: left;
+    margin: 1px;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+}
+
+.IconVideo{
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+}
+
+.IconPhone{
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+}
+
+.message{
+    /* position: fixed; */
+    background-color: #575DB7;
+    height: 75%;
+    margin-right: 550px;
+}
+
+.InputChat{
+    height: 30%;
+    margin-right: 600px;
+    margin-left: 30px;
+}
+
+.IconChatFooter{
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.SendMessageIcon{
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+    margin-right: 0;
+    float:right;
+    cursor: pointer;
+}
+
+.inputMessage{
+    width: 100%;
+    height: 50px;
+    outline: none;
+    font: small-caption;
+    font-size: 16px;
+    padding-left: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.219);
+    border-radius: 5px;
+}
+
+.GroupIconChat{
+    margin-left: 40px;
+}
+
+.ChatFile{
+    height: 100%;
+    margin-right: 500px;
+}
+
+.iconmoreFile{
+    height: 20px;
+    width: 20px;
+    margin-left: 35px;
+    cursor: pointer;
+}
+
+.iconFile{
+    height: 30px;
+    width: 30px;
+    margin-left: 60px;
+}
+
+
+table {
+    width: 100%;   
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    border-top: 1px solid #dee2e6;
+}
+
+.ItemTooltipFile{
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.IconTooltipFile{
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    float: left;
+}
+
+.fileTooltipTitle{
+    height: 20px;
+    width: 100px;
+    line-height:25px;
+    font-size: 12px;
+    float: left;
+}
+
+
+.MuiTooltip-popper[data-popper-placement*="bottom"] .css-ja5taz-MuiTooltip-tooltip{
+    width: 150px;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.325);
+    margin-left: 3px;
+}
