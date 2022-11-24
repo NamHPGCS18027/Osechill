@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Modellogin.css";
 import hide from "../../image/Icon-Login/view_pw_icon.png";
 import Forgetpw from "../Forgetpw/Forgetpw";
 import { Url } from "../../Url/Url";
 import hidepwicon from "../../image/Icon-Login/hide_pw_icon.png";
+import { useNavigate } from "react-router-dom";
 
 function Modellogin({ setloginmodel }) {
   const [Fgpassword, setFgpassword] = useState(false);
   const [LoginEmail, setLoginEmail] = useState("");
   const [LoginPassword, setLoginPassword] = useState("");
   const [ViewPassword, setViewPassWord] = useState(true);
+  const Navigate = useNavigate();
 
   const handleViewPassword = () => {
     setViewPassWord(!ViewPassword);
@@ -35,11 +37,49 @@ function Modellogin({ setloginmodel }) {
       .then((result) => {
         sessionStorage.setItem("accessToken", result.token);
         console.log(result);
+        loadDataProfile();
       })
       .catch((error) => {
         console.log("error", error);
         alert("EMAIL OR PASSWORD ERROR");
       });
+  };
+
+  const loadDataProfile = () => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + "/api/Auth/GetProfile", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("result", result);
+        loginSucces(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const loginSucces = (result) => {
+    if (result.role[0] === "admin") {
+      Navigate("/Manage_Accounts");
+    } else if (result.role[0] === "resident") {
+      Navigate("/Issues_List");
+    } else if (result.role[0] === "staffbt") {
+      Navigate("/Manage_Accounts");
+    } else if (result.role[0] === "staffst") {
+      Navigate("/Manage_Accounts");
+    } else if (result.role[0] === "manage") {
+      Navigate("/Manage_Accounts");
+    }
   };
 
   return (

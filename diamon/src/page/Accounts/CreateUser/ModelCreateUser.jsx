@@ -9,22 +9,104 @@ import female from "../../../image/Icon v3/female.png";
 import unknown from "../../../image/Icon v3/unknown.png";
 import unknown1 from "../../../image/Icon v3/unknown1.png";
 import { useState } from "react";
+import { useEffect } from "react";
+import { Url } from "../../../Url/Url";
 function ModelCreateUser({ setCreatenmodel }) {
-  const[MaleGender,setMaleGender] = useState(false)
-  const[FemaleGender,setFemaleGender] = useState(false)
+  const [MaleGender, setMaleGender] = useState(false);
+  const [FemaleGender, setFemaleGender] = useState(false);
   const [tyleinfo, settyleinfo] = useState(true);
+  const token = sessionStorage.getItem("accessToken");
+  const [AllRole, setAllRole] = useState([]);
+  const [fullname, setfullname] = useState("");
+  const [isMale, setisMale] = useState(true);
+  const [nationality, setnationality] = useState("");
+  const [country, setcountry] = useState("");
+  const [dob, setdob] = useState("");
+  const [age, setage] = useState("");
+  const [idType, setidType] = useState("");
+  const [idNumber, setidNumber] = useState("");
+  const [roleID, setroleID] = useState("");
+  const [residentialAddress, setresidentialAddress] = useState("");
+  const [email, setemail] = useState("");
+  const [phoneCountryCode, setphoneCountryCode] = useState("");
+  const [phoneNumber, setphoneNumber] = useState("");
 
-  // const handlegender = () => {
-  //   if(setMaleGender(true)){
-  //     setFemaleGender(false)
-  //   }else if(setFemaleGender(true)){
-  //     setMaleGender(false)
-  //   }
-  // }
   const handelgender = () => {
-    setMaleGender(!MaleGender)
-    setFemaleGender(!FemaleGender)
-  }
+    setMaleGender(!MaleGender);
+    setFemaleGender(!FemaleGender);
+    setisMale(MaleGender);
+  };
+
+  useEffect(() => {
+    GetAllRole();
+  }, [token]);
+
+  const GetAllRole = () => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + "/api/Roles/GetAllRoles", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setAllRole(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const AdminCreacteUser = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      fullname: fullname,
+      isMale: isMale,
+      nationality: nationality,
+      country: country,
+      dob: dob,
+      age: age,
+      idType: idType,
+      idNumber: idNumber,
+      roleID: roleID,
+      residentialAddress: residentialAddress,
+      email: email,
+      phoneCountryCode: phoneCountryCode,
+      phoneNumber: phoneNumber,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(Url+"/api/FE002/CreateProfile", requestOptions)
+      .then((response) => {
+        response.json();
+      })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const ListRole = AllRole.map((data) => (
+    <option key={data.id} value={data.id}>
+      {data.name}
+    </option>
+  ));
 
   return (
     <div className="modalBackgroundCreate">
@@ -37,8 +119,8 @@ function ModelCreateUser({ setCreatenmodel }) {
             onClick={() => setCreatenmodel(false)}
           />
         </div>
-        
-          {tyleinfo ? (
+
+        {tyleinfo ? (
           <div className="creacteUserHeader1">
             <div className="backgroundiconInfo">
               <img src={info} className="iconInfo" />
@@ -50,10 +132,10 @@ function ModelCreateUser({ setCreatenmodel }) {
               </div>
             </div>
             <img
-                src={close}
-                className="closeIcon1"
-                onClick={() => settyleinfo(false)}
-              />
+              src={close}
+              className="closeIcon1"
+              onClick={() => settyleinfo(false)}
+            />
           </div>
         ) : (
           <></>
@@ -65,7 +147,7 @@ function ModelCreateUser({ setCreatenmodel }) {
             <div className="inoutnametitle">
               Full Name <img src={star} className="staricon" />
             </div>
-            <input className="inputname" />
+            <input className="inputname" value={fullname} onChange={e => setfullname(e.target.value)}/>
             <hr className="lineCreate" />
           </div>
           {/* gender */}
@@ -75,33 +157,33 @@ function ModelCreateUser({ setCreatenmodel }) {
             </div>
             <div>
               <div className="backgroundgender">
-                {MaleGender ?
-                <div className="backgroundgender1 " onClick={handelgender}>
-                <img src={unknown1} className="unknown" />
-                <img src={male} className="maleicon" />
-              </div>
-              :
-              <div className="backgroundgender1 " onClick={handelgender}>
-                  <img src={unknown} className="unknown" />
-                  <img src={male} className="maleicon" />
-                </div>
-                }
+                {MaleGender ? (
+                  <div className="backgroundgender1 " onClick={handelgender}>
+                    <img src={unknown1} className="unknown" />
+                    <img src={male} className="maleicon" />
+                  </div>
+                ) : (
+                  <div className="backgroundgender1 " onClick={handelgender}>
+                    <img src={unknown} className="unknown" />
+                    <img src={male} className="maleicon" />
+                  </div>
+                )}
               </div>
               <div className="gendertitle">Male</div>
             </div>
             <div>
               <div className="backgroundgender">
-                {FemaleGender ? 
-                <div className="backgroundgender1 " onClick={handelgender}>
-                <img src={unknown} className="unknown" />
-                <img src={female} className="femaleicon" />
-              </div>
-              :
-              <div className="backgroundgender1 " onClick={handelgender}>
-                  <img src={unknown1} className="unknown" />
-                  <img src={female} className="femaleicon" />
-                </div>
-                }
+                {FemaleGender ? (
+                  <div className="backgroundgender1 " onClick={handelgender}>
+                    <img src={unknown} className="unknown" />
+                    <img src={female} className="femaleicon" />
+                  </div>
+                ) : (
+                  <div className="backgroundgender1 " onClick={handelgender}>
+                    <img src={unknown1} className="unknown" />
+                    <img src={female} className="femaleicon" />
+                  </div>
+                )}
               </div>
               <div className="gendertitle">Female</div>
             </div>
@@ -112,7 +194,7 @@ function ModelCreateUser({ setCreatenmodel }) {
               <div className="inoutnametitle">
                 Nationality <img src={star} className="staricon" />
                 <div>
-                  <select id="Nationality" className="inputNationality">
+                  <select id="Nationality" className="inputNationality" value={nationality} onChange={e => setnationality(e.target.value)}>
                     <option value="Vietnamese">Vietnamese</option>
                     <option value="USA">USA</option>
                     <option value="Maslysia">Maslysia</option>
@@ -126,7 +208,7 @@ function ModelCreateUser({ setCreatenmodel }) {
               <div className="inoutnametitle">
                 Country <img src={star} className="staricon" />
                 <div>
-                  <select id="Country" className="inputCountry">
+                  <select id="Country" className="inputCountry" value={country} onChange={e => setcountry(e.target.value)}>
                     <option value="VietNam">VietNam</option>
                     <option value="Chauphi">Chau phi</option>
                     <option value="China">China</option>
@@ -141,10 +223,10 @@ function ModelCreateUser({ setCreatenmodel }) {
           <div className="option1">
             <div className="dob">
               <div className="inoutnametitle">
-                Date of birth <img src={star} className="staricon" />
+                Date of birth <img src={star} className="staricon"/>
               </div>
               <div>
-                <input className="inputDob" placeholder="DD/MM/YYYY" />
+                <input className="inputDob" placeholder="DD/MM/YYYY" type="date" value={dob} onChange={ e => setdob(e.target.value)}/>
               </div>
               <div>
                 <hr className="line3" />
@@ -155,7 +237,7 @@ function ModelCreateUser({ setCreatenmodel }) {
               <div className="inoutnametitle">
                 Age <img src={star} className="staricon" />
               </div>
-              <div>25</div>
+              <input type="number" value={age} onChange={ e => setage(e.target.value)} />
             </div>
           </div>
           <div className="option1">
@@ -164,7 +246,7 @@ function ModelCreateUser({ setCreatenmodel }) {
               <div className="inoutnametitle">
                 ID Type <img src={star} className="staricon" />
                 <div>
-                  <select id="Country" className="inputCountry">
+                  <select id="Country" className="inputCountry" value={idType} onChange={ e => setidType(e.target.value)}>
                     <option value="Citizen ID1">Citizen ID</option>
                     <option value="Citizen ID2">Citizen ID 1</option>
                     <option value="Citizen ID3">Citizen ID 2</option>
@@ -178,7 +260,7 @@ function ModelCreateUser({ setCreatenmodel }) {
               <div className="inoutnametitle">
                 ID Number <img src={star} className="staricon" />
                 <div>
-                  <input className="inputDob" />
+                  <input className="inputDob" type="number" value={idNumber} onChange={ e => setidNumber(e.target.value)}/>
                 </div>
                 <hr className="line3" />
               </div>
@@ -189,11 +271,9 @@ function ModelCreateUser({ setCreatenmodel }) {
               <div className="inoutnametitle">
                 Role <img src={star} className="staricon" />
                 <div>
-                  <select id="role" className="inputrole">
-                    <option value="Citizen">Citizen ID</option>
-                    <option value="Manage">Manage</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Boss">Boss</option>
+                  <select id="role" className="inputrole" value={roleID} onChange={ e => setroleID(e.target.value)}>
+                    <option value=""></option>
+                    {ListRole}
                   </select>
                 </div>
                 <hr className="line4" />
@@ -204,8 +284,8 @@ function ModelCreateUser({ setCreatenmodel }) {
             <div className="inoutnametitle">
               Residential Address <img src={star} className="staricon" />
             </div>
-            <input className="inputname" />
-            <hr className="lineCreate" />
+            <input className="inputname" value={residentialAddress} onChange={ e => setresidentialAddress(e.target.value)}/>
+            <hr className="lineCreate" /> 
           </div>
           <div className="GeneralTitle1">Contact information</div>
           <div className="inputfullname">
@@ -215,6 +295,8 @@ function ModelCreateUser({ setCreatenmodel }) {
             <input
               className="inputname"
               placeholder="local-part@domainName.com = ex: jay520@gmail.com"
+              value={email}
+              onChange={ e => setemail(e.target.value)}
             />
             <hr className="lineCreate" />
           </div>
@@ -224,11 +306,11 @@ function ModelCreateUser({ setCreatenmodel }) {
               <div className="inoutnametitle">
                 Country Code <img src={star} className="staricon" />
                 <div>
-                  <select id="Country" className="inputCountry">
-                    <option value="Citizen ID1">+84</option>
-                    <option value="Citizen ID2">+92</option>
-                    <option value="Citizen ID3">+25</option>
-                    <option value="Citizen ID4">+75</option>
+                  <select id="Country" className="inputCountry" value={phoneCountryCode} onChange={ e => setphoneCountryCode(e.target.value)}>
+                    <option value="84">+84</option>
+                    <option value="92">+92</option>
+                    <option value="25">+25</option>
+                    <option value="75">+75</option>
                   </select>
                 </div>
                 <hr className="line3" />
@@ -238,16 +320,19 @@ function ModelCreateUser({ setCreatenmodel }) {
               <div className="inoutnametitle">
                 Phone Number <img src={star} className="staricon" />
                 <div>
-                  <input className="inputDob" />
+                  <input className="inputDob" value={phoneNumber} onChange={ e => setphoneNumber(e.target.value)}/>
                 </div>
                 <hr className="line3" />
               </div>
             </div>
             <div>
-              <div className="Cancelbtnuser" onClick={() => setCreatenmodel(false)}>
+              <div
+                className="Cancelbtnuser"
+                onClick={() => setCreatenmodel(false)}
+              >
                 <div>Cancel</div>
               </div>
-              <div className="Createbtnuser">
+              <div className="Createbtnuser" onClick={AdminCreacteUser}>
                 <div>Create</div>
               </div>
             </div>

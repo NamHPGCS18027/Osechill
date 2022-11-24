@@ -11,7 +11,7 @@ import manage_services_icon from "../image/Sidebar/Not Selected/Staff/manage_ser
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 
-function SidebarStaffSt() {
+function SidebarStaffSt({Userdetail}) {
   const [inactive, setinactive] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
 
@@ -100,7 +100,7 @@ function SidebarStaffSt() {
                       <img src={avatar_icon} className="avartar" />
                     </div>
                     <div className="userinfor">
-                      <h5>Full Name - Administrators</h5>
+                      <h5>{Userdetail.username} - {Userdetail.role}</h5>
                       <p>Diamond Apartment</p>
                     </div>
                     <div className="moreicon">
@@ -119,7 +119,7 @@ function SidebarStaffSt() {
                     <img src={avatar_icon} className="avartar" />
                   </div>
                   <div className="userinfor">
-                    <h5>Full Name - Administrators</h5>
+                    <h5>{Userdetail.username} - {Userdetail.role}</h5>
                     <p>Diamond Apartment</p>
                   </div>
                   <div className="moreicon">

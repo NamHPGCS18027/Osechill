@@ -13,7 +13,7 @@ import communication_icon from "../image/Sidebar/Not Selected/Manager/communicat
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 
-function SiderbarManage() {
+function SiderbarManage({Userdetail}) {
   const [inactive, setinactive] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
 
@@ -126,7 +126,7 @@ function SiderbarManage() {
                       <img src={avatar_icon} className="avartar" />
                     </div>
                     <div className="userinfor">
-                      <h5>Full Name - Administrators</h5>
+                      <h5>{Userdetail.username} - {Userdetail.role}</h5>
                       <p>Diamond Apartment</p>
                     </div>
                     <div className="moreicon">
@@ -145,7 +145,7 @@ function SiderbarManage() {
                     <img src={avatar_icon} className="avartar" />
                   </div>
                   <div className="userinfor">
-                    <h5>Full Name - Administrators</h5>
+                    <h5>{Userdetail.username} - {Userdetail.role}</h5>
                     <p>Diamond Apartment</p>
                   </div>
                   <div className="moreicon">

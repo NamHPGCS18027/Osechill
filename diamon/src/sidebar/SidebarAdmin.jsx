@@ -12,13 +12,15 @@ import manage_accounts_icon1 from "../image/Sidebar/Selected/Admin/manage_accoun
 import communication_icon1 from "../image/Sidebar/Selected/Admin/communication_icon.png";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate  } from "react-router-dom";
 
-function SidebarAdmin() {
+function SidebarAdmin({Userdetail}) {
   const [inactive, setinactive] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
-  const [click, setClick] = useState(true);
-  const [click1, setClick1] = useState(false);
+  const [click, setClick] = useState(false);
+  const [click1, setClick1] = useState(true);
+  const Navigate = useNavigate() ; 
+  
 
   const handleClick = () => {
     setClick(!click);
@@ -41,6 +43,10 @@ function SidebarAdmin() {
     setinactive(!inactive);
   };
 
+  const logout = () => {
+    sessionStorage.removeItem("accessToken")
+    Navigate("/")
+  }
   return (
     <div className={`Sitebarbr ${inactive ? "" : "inactive"}`}>
       <div onClick={() => activebar()}>
@@ -48,7 +54,7 @@ function SidebarAdmin() {
       </div>
       <div>
         <NavLink
-          to="/Manage_Accounts"
+          to="Manage_Accounts"
           className={({ isActive }) =>
             `sidebaradmin ${isActive ? "active" : ""}`
           }
@@ -144,7 +150,7 @@ function SidebarAdmin() {
                       <img src={avatar_icon} className="avartar" />
                     </div>
                     <div className="userinfor">
-                      <h5>Full Name - Administrators</h5>
+                      <h5>{Userdetail.username} - {Userdetail.role}</h5>
                       <p>Diamond Apartment</p>
                     </div>
                     <div className="moreicon">
@@ -153,7 +159,7 @@ function SidebarAdmin() {
                     <div className="allinforitem">
                       <div className="infoitem">My Profile</div>
                       <div className="infoitem">Add an existing account</div>
-                      <div className="infoitem">Logout </div>
+                      <div className="infoitem" onClick={logout}>Logout </div>
                     </div>
                   </div>
                 }
@@ -163,7 +169,7 @@ function SidebarAdmin() {
                     <img src={avatar_icon} className="avartar" />
                   </div>
                   <div className="userinfor">
-                    <h5>Full Name - Administrators</h5>
+                    <h5>{Userdetail.username} - {Userdetail.role}</h5>
                     <p>Diamond Apartment</p>
                   </div>
                   <div className="moreicon">
