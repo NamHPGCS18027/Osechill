@@ -4,25 +4,69 @@ import iconSearch from "../../image/Issues List v1/icon_Search.png";
 import filter from "../../image/Icon v3/filter.png";
 import sort from "../../image/Icon v3/sort.png";
 import recyclebin from "../../image/Icon v3/recycle-bin.png";
-import ModleManageCreateUser from "./CreateUser/ModleManageCreateUser";
 import ModelCreateUser from "./CreateUser/ModelCreateUser";
 import Filter from "./ShowFilter/Filter";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Url } from "../../Url/Url";
 
 function AccountUser() {
   const [Createnmodel, setCreatenmodel] = useState(false);
   const [Filtermodel, setFiltermodel] = useState(false);
+  const token = sessionStorage.getItem("accessToken");
+  const [AcoundDetail, setAcoundDetail] = useState([])
+
+  useEffect(() => {
+    GetAllAc();
+  }, [token]);
+
+  const GetAllAc = () => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + "/api/FE001/GetAllUser", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setAcoundDetail(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const ListUserAc = AcoundDetail.map( (data) => (
+        <tr>
+          <td>
+            <span className="nameAc">{data.userName}</span>
+          </td>
+          <td>{data.age}</td>
+          <td>{data.phoneNumber}</td>
+          <td>{data.email}</td>
+          <td>{data.role}</td>
+          <td>
+            <img src={recyclebin} className="iconrecyclebin" />
+          </td>
+        </tr>
+  ));
+  
   return (
     <div>
       {Createnmodel && (
-            <ModelCreateUser setCreatenmodel={setCreatenmodel} />
-            // <ModleManageCreateUser setCreatenmodel={setCreatenmodel}/>
+            <ModelCreateUser setCreatenmodel={setCreatenmodel}/>
           )}
       {Filtermodel && <Filter setFiltermodel={setFiltermodel} />}
       {/* header Accounts */}
       <div className="headerAc">
         <div className="AcHead">
-          <Link to="/Manage_Accounts">
+          <Link to="/Admin_Accounts">
             <div className="Headitem1">Employees</div>
           </Link>
         </div>
@@ -77,54 +121,7 @@ function AccountUser() {
           </th>
           <th />
         </tr>
-        <tr>
-          <td>
-            <span className="nameAc">Jennie Kim</span>
-          </td>
-          <td>25</td>
-          <td>0123456789</td>
-          <td>jenniekim@gmail.com</td>
-          <td>Block's manager - A</td>
-          <td>
-            <img src={recyclebin} className="iconrecyclebin" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span className="nameAc">Roseanne Park </span>
-          </td>
-          <td>26</td>
-          <td>0123456789</td>
-          <td>rosepark@gmail.com</td>
-          <td>Block's manager - B</td>
-          <td>
-            <img src={recyclebin} className="iconrecyclebin" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span className="nameAc">Shawn Peter Raul Mendes</span>
-          </td>
-          <td>35</td>
-          <td>0123456789</td>
-          <td>shawnmendes@gmail.com</td>
-          <td>Staff - Booking Team</td>
-          <td>
-            <img src={recyclebin} className="iconrecyclebin" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span className="nameAc">Taylor Alison Swift </span>
-          </td>
-          <td>40</td>
-          <td>0123456789</td>
-          <td>taylorswift@gmail.com</td>
-          <td>Staff - Service Team</td>
-          <td>
-            <img src={recyclebin} className="iconrecyclebin" />
-          </td>
-        </tr>
+        {ListUserAc}
       </table>
     </div>
   );

@@ -54,14 +54,14 @@ function SidebarAdmin({Userdetail}) {
       </div>
       <div>
         <NavLink
-          to="Manage_Accounts"
+          to="Admin_Accounts"
           className={({ isActive }) =>
             `sidebaradmin ${isActive ? "active" : ""}`
           }
         >
           <Tooltip
             placement="right"
-            title="Manage_Accounts"
+            title="Admin_Accounts"
             type="dark"
             effect="solid"
           >

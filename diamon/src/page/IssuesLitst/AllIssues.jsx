@@ -6,7 +6,7 @@ import icon_Share from "../../image/Issues List v2/icon_Share.png";
 
 function AllIssues() {
   return (
-    <div className="BackgroundIssues">
+    // <div className="BackgroundIssues">
       <div className="IssuesContainer">
         {/* header */}
         <div className="IssuesHeader">
@@ -107,7 +107,6 @@ function AllIssues() {
           <div className="btnReplyCmt">Reply</div>
         </div>
       </div>
-    </div>
   );
 }
 

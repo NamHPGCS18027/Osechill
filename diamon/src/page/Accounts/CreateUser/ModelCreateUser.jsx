@@ -11,12 +11,13 @@ import unknown1 from "../../../image/Icon v3/unknown1.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Url } from "../../../Url/Url";
-function ModelCreateUser({ setCreatenmodel }) {
+function ModelCreateUser({ setCreatenmodel}) {
   const [MaleGender, setMaleGender] = useState(false);
   const [FemaleGender, setFemaleGender] = useState(false);
   const [tyleinfo, settyleinfo] = useState(true);
   const token = sessionStorage.getItem("accessToken");
   const [AllRole, setAllRole] = useState([]);
+  const [Username, setUsername] = useState("")
   const [fullname, setfullname] = useState("");
   const [isMale, setisMale] = useState(true);
   const [nationality, setnationality] = useState("");
@@ -68,6 +69,7 @@ function ModelCreateUser({ setCreatenmodel }) {
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
+      UserName: Username,
       fullname: fullname,
       isMale: isMale,
       nationality: nationality,
@@ -142,6 +144,14 @@ function ModelCreateUser({ setCreatenmodel }) {
         )}
         <div className="GeneralTitle">General information</div>
         <div className="inputalluserinformationbackground">
+          {/* full name */}
+          <div className="inputfullname">
+            <div className="inoutnametitle">
+              User Name <img src={star} className="staricon" />
+            </div>
+            <input className="inputname" value={Username} onChange={e => setUsername(e.target.value)}/>
+            <hr className="lineCreate" />
+          </div>
           {/* full name */}
           <div className="inputfullname">
             <div className="inoutnametitle">

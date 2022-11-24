@@ -10,10 +10,12 @@ import communications_icon from '../image/Sidebar/Not Selected/Staff/communicati
 import manage_bookings_icon from '../image/Sidebar/Not Selected/Staff/manage_bookings_icon.png'
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { useNavigate } from "react-router-dom";
 
 function SidebarStaffBt({Userdetail}) {
   const [inactive, setinactive] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
+  const Navigate = useNavigate() ; 
 
   const handleTooltipClose = () => {
     setOpenTooltip(false);
@@ -26,6 +28,12 @@ function SidebarStaffBt({Userdetail}) {
   const activebar = () => {
     setinactive(!inactive);
   };
+
+  const logout = () => {
+    sessionStorage.removeItem("accessToken")
+    Navigate("/")
+  }
+
   return (
     <div className={`Sitebarbr ${inactive ? "" : "inactive"}`}>
       <div onClick={() => activebar()}>
@@ -109,7 +117,7 @@ function SidebarStaffBt({Userdetail}) {
                     <div className="allinforitem">
                       <div className="infoitem">My Profile</div>
                       <div className="infoitem">Add an existing account</div>
-                      <div className="infoitem">Logout </div>
+                      <div className="infoitem" onClick={logout}>Logout </div>
                     </div>
                   </div>
                 }

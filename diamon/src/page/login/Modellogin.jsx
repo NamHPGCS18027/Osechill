@@ -70,7 +70,7 @@ function Modellogin({ setloginmodel }) {
 
   const loginSucces = (result) => {
     if (result.role[0] === "admin") {
-      Navigate("/Manage_Accounts");
+      Navigate("/Admin_Accounts");
     } else if (result.role[0] === "resident") {
       Navigate("/Issues_List");
     } else if (result.role[0] === "staffbt") {

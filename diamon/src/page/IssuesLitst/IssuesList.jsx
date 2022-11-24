@@ -10,54 +10,134 @@ import icon_Search from "../../image/Issues List v1/icon_Search.png";
 import icon_Call from "../../image/Issues List v2/icon_Call.png";
 import icon_Message from "../../image/Issues List v2/icon_Message.png";
 import icon_Contacts from "../../image/Issues List v2/icon_Contacts.png";
+import { Tooltip } from "@mui/material";
+import { useState } from "react";
+import { Url } from "../../Url/Url";
 
 function IssuesList() {
+  const [content, setcontent] = useState("");
+  const [isPrivate, setisPrivate] = useState(false);
+  const [CateId, setCateId] = useState([]);
+  const [fileInput, setfileInput] = useState([]);
+
+  const uploadIssue = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+
+    let formdata = new FormData();
+    formdata.append("content", content);
+    formdata.append("isPrivate", isPrivate);
+    formdata.append("listFiles", fileInput, fileInput.name);
+    formdata.append("listCateID", "CateIdtest");
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: formdata,
+      redirect: "follow",
+    };
+
+    fetch(Url + "/api/FE003/AddNewIssue", requestOptions)
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
   return (
     <div className="BackgroundIssuesList">
       <div className="BackGroundContainerIssuesLeft">
         {/* Navbar */}
-        <NavbarIssues />
+        <div>
+          <NavbarIssues />
+        </div>
+
         {/* Seach */}
-        <div className="BackGroundSeachIssues">
-          <div className="SeachIssues">
-            <div className="SeackAvatarIssues">
-              <img src={avatar_icon} className="SeackAvatarIssues" />
-            </div>
-            <div className="InputBackGrpundIssues">
-              <div className="SeachIssuesTitle">What's happening?</div>
-              <div className="inputIsuesbackground">
-                <div className="PlaceholderIconBackground">
-                  <img
-                    src={icon_Everyone_can_reply}
-                    alt=""
-                    className="PlaceholderIcon"
-                  />
-                </div>
-                <input
-                  type="text"
-                  className="InputSeachIssues"
-                  placeholder="Everyone can reply"
+        {/* <div className="BackGroundSeachIssues"> */}
+        <div className="CreateIssues">
+          <div className="SeackAvatarIssues">
+            <img src={avatar_icon} className="SeackAvatarIssues" />
+          </div>
+          <div className="InputBackGrpundIssues">
+            <input
+              className="SeachIssuesTitle"
+              placeholder="What's happening?"
+              value={content}
+              onChange={(e) => setcontent(e.target.value)}
+            />
+            <div className="inputIsuesbackground">
+              <div className="PlaceholderIconBackground">
+                <img
+                  src={icon_Everyone_can_reply}
+                  alt=""
+                  className="PlaceholderIcon"
                 />
-                <hr className="LineSeachIssues" />
               </div>
+              <select
+                id="tyle"
+                className="InputSeachIssues"
+                value={isPrivate}
+                onChange={(e) => setisPrivate(e.target.value)}
+              >
+                <option value="false">Everyone can reply</option>
+                <option value="true">Private</option>
+              </select>
+              <hr className="LineSeachIssues" />
             </div>
-            <div className="IconNavberIssuesFooter">
-              <img
-                src={icon_Image_Video}
-                alt=""
-                className="seachIconIssuesFooter"
-              />
+          </div>
+          <div className="IconNavberIssuesFooter">
+            <label htmlFor="file">
+              <Tooltip
+                placement="right"
+                title="Image/Video"
+                type="dark"
+                effect="solid"
+              >
+                <img
+                  src={icon_Image_Video}
+                  alt=""
+                  className="seachIconIssuesFooter"
+                />
+              </Tooltip>
+            </label>
+            <input
+              id="file"
+              className="inputimg"
+              type="file"
+              files={fileInput}
+              onChange={(e) => setfileInput(e.target.files[0])}
+            ></input>
+            {fileInput !== null ? (
+              <span className="imgTitle">{fileInput.name}</span>
+            ) : (
+              <></>
+            )}
+            <Tooltip
+              placement="right"
+              title="Category"
+              type="dark"
+              effect="solid"
+            >
               <img
                 src={icon_Category}
                 alt=""
                 className="seachIconIssuesFooter"
               />
-              <div className="BtnSeachIssues">SUBMIT</div>
+            </Tooltip>
+
+            <div className="BtnSeachIssues" onClick={uploadIssue}>
+              SUBMIT
             </div>
           </div>
         </div>
+        {/* </div> */}
         {/* Issues */}
-        <AllIssues />
+        <div>
+          <AllIssues />
+        </div>
         <div className="FooterIssuesLeft"></div>
       </div>
       <div className="BackGroundContainerIssuesright">
@@ -147,7 +227,6 @@ function IssuesList() {
                 <div className="listUserRoom">Block Name - Room ID</div>
                 <div className="listUserRoom">Block Name - Room ID</div>
                 <div className="listUserRoom">Block Name - Room ID</div>
-                
               </div>
             </div>
             <div className="BackgorundRoomlist">

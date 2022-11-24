@@ -11,6 +11,9 @@ import ChatFile from "./page/Chat/ChatFile";
 import Chat1 from "./TestChat/Chat1";
 import IssuesList from "./page/IssuesLitst/IssuesList";
 import Sidebar from "./sidebar/Sidebar";
+import ManageListUser from "./page/Accounts/ManageListUser";
+import ManageDeleteAcound from "./page/Accounts/ManageDeleteAcound";
+import TaskST from "./page/Task/TaskST";
 
 function App() {
   
@@ -23,11 +26,14 @@ function App() {
         <Sidebar />
       <div className="controller">
         <Routes>
-          <Route exact path="/Manage_Accounts" element={<AccountUser />} />
+          <Route exact path="/Admin_Accounts" element={<AccountUser />} />
           <Route exact path="/Deleted_employees" element={<DeleteUser />} />
           <Route exact path="/Communication" element={<Chat />} />
           <Route exact path="/File" element={<ChatFile />} />
           <Route exact path="/Issues_List" element={<IssuesList />} />
+          <Route exact path="/Manage_Accounts" element={<ManageListUser />} />
+          <Route exact path="/Manage_Deleted_employees" element={<ManageDeleteAcound />} />
+          <Route exact path="/ST_TasK" element={<TaskST />} />
         </Routes>
       </div>
       {/* <AccountUser/> */}

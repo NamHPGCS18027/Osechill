@@ -13,7 +13,7 @@ function DeleteUser() {
       {/* header Accounts */}
       <div className="headerAc">
         <div className="AcHead">
-          <Link to="/Manage_Accounts">
+          <Link to="/Admin_Accounts">
             <div className="Headitem">Employees</div>
           </Link>
         </div>
