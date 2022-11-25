@@ -5,11 +5,14 @@ import filter from "../../image/Icon v3/filter.png";
 import sort from "../../image/Icon v3/sort.png";
 import { Link } from "react-router-dom";
 import ModleTaskDetail from "./ModleTaskDetail";
+import ModleTaskFilter from "./ModleTaskFilter";
 
 function TaskST() {
   const [TaskDetail, setTaskDetail] = useState(false)
+  const [TaskFilter, setTaskFilter] = useState(false)
   return (
     <div>
+      {TaskFilter && <ModleTaskFilter setTaskFilter={setTaskFilter}/>}
       {TaskDetail && <ModleTaskDetail setTaskDetail={setTaskDetail}/>}
       <div className="bodyheadTask">
         {/* seach Task */}
@@ -18,7 +21,7 @@ function TaskST() {
           <input className="inputTask" placeholder="Search" />
           <hr className="line2Task" />
         </div>
-        <div className="btnfilterTask" onClick={() => setFiltermodel(true)}>
+        <div className="btnfilterTask" onClick={() => setTaskFilter(true)}>
           <img src={filter} className="iconfilterTask" />
           <div className="filtertitleTask">Show filter</div>
         </div>

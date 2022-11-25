@@ -31,6 +31,8 @@ function ModelCreateUser({ setCreatenmodel}) {
   const [email, setemail] = useState("");
   const [phoneCountryCode, setphoneCountryCode] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
+  const [listPhoneCode, setlistPhoneCode] = useState([])
+  const [listNationality, setlistNationality] = useState([])
 
   const handelgender = () => {
     setMaleGender(!MaleGender);
@@ -40,6 +42,7 @@ function ModelCreateUser({ setCreatenmodel}) {
 
   useEffect(() => {
     GetAllRole();
+    GetLookup();
   }, [token]);
 
   const GetAllRole = () => {
@@ -64,6 +67,28 @@ function ModelCreateUser({ setCreatenmodel}) {
       });
   };
 
+  const GetLookup = () => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + "/api/LookUp/GetAllLookUp", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setlistPhoneCode(result.listPhoneCode);
+        setlistNationality(result.listNationality)
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  }
   const AdminCreacteUser = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -83,6 +108,7 @@ function ModelCreateUser({ setCreatenmodel}) {
       email: email,
       phoneCountryCode: phoneCountryCode,
       phoneNumber: phoneNumber,
+      isStaff : true
     });
 
     var requestOptions = {
@@ -94,13 +120,15 @@ function ModelCreateUser({ setCreatenmodel}) {
 
     fetch(Url+"/api/FE002/CreateProfile", requestOptions)
       .then((response) => {
-        response.json();
+        response.text();
       })
       .then((result) => {
+        alert(result)
         console.log(result);
       })
       .catch((error) => {
         console.log("error", error);
+        alert(error)
       });
   };
 
@@ -109,7 +137,18 @@ function ModelCreateUser({ setCreatenmodel}) {
       {data.name}
     </option>
   ));
+  
+  const Phonecode = listPhoneCode.map((data) =>(
+    <option key={data.lookUpID} value={data.valueString}>
+      {data.valueString}
+    </option>
+  ))
 
+  const National = listNationality.map((data) =>(
+    <option key={data.lookUpID} value={data.valueString}>
+      {data.valueString}
+    </option>
+  ))
   return (
     <div className="modalBackgroundCreate">
       <div className="modalContainerCreate">
@@ -205,9 +244,7 @@ function ModelCreateUser({ setCreatenmodel}) {
                 Nationality <img src={star} className="staricon" />
                 <div>
                   <select id="Nationality" className="inputNationality" value={nationality} onChange={e => setnationality(e.target.value)}>
-                    <option value="Vietnamese">Vietnamese</option>
-                    <option value="USA">USA</option>
-                    <option value="Maslysia">Maslysia</option>
+                    {National}
                   </select>
                 </div>
                 <hr className="line3" />
@@ -219,10 +256,7 @@ function ModelCreateUser({ setCreatenmodel}) {
                 Country <img src={star} className="staricon" />
                 <div>
                   <select id="Country" className="inputCountry" value={country} onChange={e => setcountry(e.target.value)}>
-                    <option value="VietNam">VietNam</option>
-                    <option value="Chauphi">Chau phi</option>
-                    <option value="China">China</option>
-                    <option value="ThaiLan">ThaiLan</option>
+                    {National}
                   </select>
                 </div>
                 <hr className="line3" />
@@ -247,7 +281,7 @@ function ModelCreateUser({ setCreatenmodel}) {
               <div className="inoutnametitle">
                 Age <img src={star} className="staricon" />
               </div>
-              <input type="number" value={age} onChange={ e => setage(e.target.value)} />
+              <input className="inputDob" placeholder="Age" type="number" value={age} onChange={ e => setage(e.target.value)} />
             </div>
           </div>
           <div className="option1">
@@ -257,10 +291,8 @@ function ModelCreateUser({ setCreatenmodel}) {
                 ID Type <img src={star} className="staricon" />
                 <div>
                   <select id="Country" className="inputCountry" value={idType} onChange={ e => setidType(e.target.value)}>
-                    <option value="Citizen ID1">Citizen ID</option>
-                    <option value="Citizen ID2">Citizen ID 1</option>
-                    <option value="Citizen ID3">Citizen ID 2</option>
-                    <option value="Citizen ID4">Citizen ID 3</option>
+                    <option value="citizen identification">Citizen Identification</option>
+                    <option value="Passport">Passport</option>
                   </select>
                 </div>
                 <hr className="line3" />
@@ -317,10 +349,7 @@ function ModelCreateUser({ setCreatenmodel}) {
                 Country Code <img src={star} className="staricon" />
                 <div>
                   <select id="Country" className="inputCountry" value={phoneCountryCode} onChange={ e => setphoneCountryCode(e.target.value)}>
-                    <option value="84">+84</option>
-                    <option value="92">+92</option>
-                    <option value="25">+25</option>
-                    <option value="75">+75</option>
+                    {Phonecode}
                   </select>
                 </div>
                 <hr className="line3" />

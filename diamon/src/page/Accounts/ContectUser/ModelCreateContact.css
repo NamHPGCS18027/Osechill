@@ -22,7 +22,17 @@
 
 .inputContacts{
     border: 0;
-    width: 400px;
+    width: 500px;
+    padding: 10px;
+    outline: none;
+    background-color: #fafafa;
+    font-weight: 600;
+}
+
+.SelectContacts{
+    border: 0;
+    width: 500px;
+    height: 30px;
     padding: 10px;
     outline: none;
     background-color: #fafafa;

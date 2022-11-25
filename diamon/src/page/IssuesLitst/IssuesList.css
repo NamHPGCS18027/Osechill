@@ -535,3 +535,9 @@
     font-size: 10px;
     color: #787B7C;
 }
+
+.categoryselect{
+    border: 0;
+    color: #787B7C;
+    font-size: 12px;
+}

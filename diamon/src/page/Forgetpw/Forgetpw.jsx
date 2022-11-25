@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Forgetpw/Forgetpw.css";
+import { Url } from "../../Url/Url";
 
 function Forgetpw({ setFgpassword }) {
+  const [ForgetPW, setForgetPW] = useState('')
+
+  const ForgetPassWord = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + `/api/Auth/ForgotPassword?${ForgetPW}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  
   return (
     <div className="modalBackground1">
       <div className="modalContainer1">
@@ -13,9 +37,9 @@ function Forgetpw({ setFgpassword }) {
           </span>
           <div>
             <div className="text">Enter your email address here:</div>
-            <input className="inputemail"></input>
+            <input className="inputemail" value={ForgetPW} onChange={e => setForgetPW(e.target.value)}></input>
           </div>
-          <button className="passwordbtn1">Retrieve Password</button>
+          <button className="passwordbtn1" onClick={ForgetPassWord}>Retrieve Password</button>
           <button className="cancelbtn1" onClick={() => setFgpassword(false)}>Cancel</button>
         </div>
       </div>

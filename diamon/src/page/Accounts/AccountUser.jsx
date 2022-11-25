@@ -32,10 +32,11 @@ function AccountUser() {
       redirect: "follow",
     };
 
-    fetch(Url + "/api/FE001/GetAllUser", requestOptions)
+    fetch(Url + `/api/FE001/GetAllUser?getActive=${true}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setAcoundDetail(result);
+        console.log(result);
       })
       .catch((error) => {
         console.log("error", error);
@@ -50,7 +51,7 @@ function AccountUser() {
           <td>{data.age}</td>
           <td>{data.phoneNumber}</td>
           <td>{data.email}</td>
-          <td>{data.role}</td>
+          <td>{data.roleName}</td>
           <td>
             <img src={recyclebin} className="iconrecyclebin" />
           </td>

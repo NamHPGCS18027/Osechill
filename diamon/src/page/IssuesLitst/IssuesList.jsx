@@ -13,16 +13,17 @@ import icon_Contacts from "../../image/Issues List v2/icon_Contacts.png";
 import { Tooltip } from "@mui/material";
 import { useState } from "react";
 import { Url } from "../../Url/Url";
+import { useEffect } from "react";
 
 function IssuesList() {
   const [content, setcontent] = useState("");
   const [isPrivate, setisPrivate] = useState(false);
   const [CateId, setCateId] = useState([]);
   const [fileInput, setfileInput] = useState([]);
+  const [cateupload, setcateupload] = useState("");
 
   const uploadIssue = () => {
     var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
     myHeaders.append(
       "Authorization",
       "Bearer " + sessionStorage.getItem("accessToken")
@@ -32,7 +33,7 @@ function IssuesList() {
     formdata.append("content", content);
     formdata.append("isPrivate", isPrivate);
     formdata.append("listFiles", fileInput, fileInput.name);
-    formdata.append("listCateID", "CateIdtest");
+    formdata.append("listCateID", cateupload);
 
     var requestOptions = {
       method: "POST",
@@ -42,10 +43,45 @@ function IssuesList() {
     };
 
     fetch(Url + "/api/FE003/AddNewIssue", requestOptions)
-      .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        alert(result);
+      })
       .catch((error) => console.log("error", error));
   };
+
+  useEffect(() => {
+    GetLookup();
+  }, []);
+
+  const GetLookup = () => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + "/api/LookUp/GetAllLookUp", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setCateId(result.listCate);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const catelist = CateId.map((data) => (
+    <option key={data.lookUpID} value={data.lookUpID}>
+      {data.valueString}
+    </option>
+  ));
 
   return (
     <div className="BackgroundIssuesList">
@@ -56,7 +92,7 @@ function IssuesList() {
         </div>
 
         {/* Seach */}
-        {/* <div className="BackGroundSeachIssues"> */}
+       
         <div className="CreateIssues">
           <div className="SeackAvatarIssues">
             <img src={avatar_icon} className="SeackAvatarIssues" />
@@ -105,6 +141,7 @@ function IssuesList() {
             </label>
             <input
               id="file"
+              name="file"
               className="inputimg"
               type="file"
               files={fileInput}
@@ -115,25 +152,32 @@ function IssuesList() {
             ) : (
               <></>
             )}
-            <Tooltip
-              placement="right"
-              title="Category"
-              type="dark"
-              effect="solid"
-            >
-              <img
-                src={icon_Category}
-                alt=""
-                className="seachIconIssuesFooter"
-              />
-            </Tooltip>
-
+            <label htmlFor="Category">
+              <Tooltip
+                placement="right"
+                title="Category"
+                type="dark"
+                effect="solid"
+              >
+                <img
+                  src={icon_Category}
+                  alt=""
+                  className="seachIconIssuesFooter"
+                />
+              </Tooltip>
+              <select
+                className="categoryselect"
+                value={cateupload}
+                onChange={(e) => setcateupload(e.target.value)}
+              >
+                {catelist}
+              </select>
+            </label>
             <div className="BtnSeachIssues" onClick={uploadIssue}>
               SUBMIT
             </div>
           </div>
         </div>
-        {/* </div> */}
         {/* Issues */}
         <div>
           <AllIssues />
