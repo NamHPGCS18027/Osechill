@@ -1,0 +1,79 @@
+.blockpageheader{
+    width: 200px;
+    height: 70px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 70px;
+}
+
+.BlockdetailBtn{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font-weight: 600;
+    line-height: 25px;
+    cursor: pointer;
+    border: 2px solid transparent;
+
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+
+    border-image-slice: 1;
+}
+
+.SelectManage{
+    width: 200px;
+    height: 30px;
+    border: 2px solid transparent;
+
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+
+    border-image-slice: 1;
+    margin: 10px;
+    font-weight: 600;
+    padding-left: 10px ;
+}
+
+.SelectBlock{
+    width: 50px;
+    height: 30px;
+    border: 2px solid transparent;
+
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+
+    border-image-slice: 1;
+    margin: 10px;
+    font-weight: 600;
+    padding-left: 10px ;
+}
+
+.backgroundAddblockmanage{
+    width: 350px;
+    height: 110px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid transparent;
+
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+
+    border-image-slice: 1;
+}
+
+.titleAddManage{
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.BtnAddManage{
+    width: 100px;
+    height: 30px;
+    float: right;
+    margin: 5px;
+    border: 2px solid transparent;
+
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+
+    border-image-slice: 1;
+    background-color: #ffff;
+    cursor: pointer;
+}

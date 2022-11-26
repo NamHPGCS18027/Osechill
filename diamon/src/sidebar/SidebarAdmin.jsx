@@ -4,12 +4,9 @@ import logo_sidebar from "../image/Sidebar/Logo/logo_sidebar.png";
 import avatar_icon from "../image/Sidebar/Not Selected/Resident/avatar_icon.png";
 import more_icon from "../image/Sidebar/Not Selected/Resident/more_icon.png";
 import active_icon from "../image/Sidebar/More/active_icon.png";
-import notifications_icon from "../image/Sidebar/Not Selected/Staff/notifications_icon.png";
-import manage_accounts_icon from "../image/Sidebar/Not Selected/Admin/manage_accounts_icon.png";
-import communication_icon from "../image/Sidebar/Not Selected/Admin/communication_icon.png";
-import notifications_icon1 from "../image/Sidebar/Selected/Staff/notifications_icon.png";
-import manage_accounts_icon1 from "../image/Sidebar/Selected/Admin/manage_accounts_icon.png";
-import communication_icon1 from "../image/Sidebar/Selected/Admin/communication_icon.png";
+import manage_blocks_icon from "../image/Sidebar/Selected/Admin/manage_blocks_icon.png";
+import manage_accounts_icon from "../image/Sidebar/Selected/Admin/manage_accounts_icon.png";
+import communication_icon from "../image/Sidebar/Selected/Admin/communication_icon.png";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { NavLink, useNavigate  } from "react-router-dom";
@@ -17,19 +14,8 @@ import { NavLink, useNavigate  } from "react-router-dom";
 function SidebarAdmin({Userdetail}) {
   const [inactive, setinactive] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
-  const [click, setClick] = useState(false);
-  const [click1, setClick1] = useState(true);
   const Navigate = useNavigate() ; 
   
-
-  const handleClick = () => {
-    setClick(!click);
-    setClick1(!click1);
-  };
-  const handleClick1 = () => {
-    setClick1(!click1);
-    setClick(!click);
-  };
 
   const handleTooltipClose = () => {
     setOpenTooltip(false);
@@ -65,39 +51,30 @@ function SidebarAdmin({Userdetail}) {
             type="dark"
             effect="solid"
           >
-            {click ? (
               <img
                 src={manage_accounts_icon}
                 className="sidebaritem"
-                onClick={handleClick}
               />
-            ) : (
-              <img
-                src={manage_accounts_icon1}
-                className="sidebaritem"
-                onClick={handleClick}
-              />
-            )}
           </Tooltip>
-          <span className="titleitem" onClick={handleClick}>
+          <span className="titleitem" >
             Manage_Accounts
           </span>
         </NavLink>
         <NavLink
-          to="/Notifications"
+          to="/AssignBlock"
           className={({ isActive }) =>
             `sidebaradmin ${isActive ? "active" : ""}`
           }
         >
           <Tooltip
             placement="right"
-            title="Notifications"
+            title="AssignBlock"
             type="dark"
             effect="solid"
           >
-            <img src={notifications_icon} className="sidebaritem" />
+            <img src={manage_blocks_icon} className="sidebaritem" />
           </Tooltip>
-          <span className="titleitem">Notifications</span>
+          <span className="titleitem">AssignBlock</span>
         </NavLink>
         <NavLink
           to="/Communication"
@@ -111,21 +88,12 @@ function SidebarAdmin({Userdetail}) {
             type="dark"
             effect="solid"
           >
-            {click1 ? (
               <img
                 src={communication_icon}
                 className="sidebaritem"
-                onClick={handleClick1}
               />
-            ) : (
-              <img
-                src={communication_icon1}
-                className="sidebaritem"
-                onClick={handleClick1}
-              />
-            )}
           </Tooltip>
-          <span className="titleitem" onClick={handleClick1}>
+          <span className="titleitem">
             Communication
           </span>
         </NavLink>

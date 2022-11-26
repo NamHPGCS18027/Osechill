@@ -11,7 +11,7 @@ import unknown1 from "../../../image/Icon v3/unknown1.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Url } from "../../../Url/Url";
-function ModelCreateUser({ setCreatenmodel}) {
+function ModelCreateUser({ setCreatenmodel ,setReload}) {
   const [MaleGender, setMaleGender] = useState(false);
   const [FemaleGender, setFemaleGender] = useState(false);
   const [tyleinfo, settyleinfo] = useState(true);
@@ -123,8 +123,9 @@ function ModelCreateUser({ setCreatenmodel}) {
         response.text();
       })
       .then((result) => {
-        alert(result)
         console.log(result);
+        alert(result.message)
+        setReload(true)
       })
       .catch((error) => {
         console.log("error", error);

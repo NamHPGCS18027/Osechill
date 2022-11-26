@@ -15,10 +15,11 @@ function AccountUser() {
   const [Filtermodel, setFiltermodel] = useState(false);
   const token = sessionStorage.getItem("accessToken");
   const [AcoundDetail, setAcoundDetail] = useState([])
+  const [Reload, setReload] = useState(false)
 
   useEffect(() => {
     GetAllAc();
-  }, [token]);
+  }, [token , Reload]);
 
   const GetAllAc = () => {
     var myHeaders = new Headers();
@@ -36,7 +37,30 @@ function AccountUser() {
       .then((response) => response.json())
       .then((result) => {
         setAcoundDetail(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const DeleteAc = (data) => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + `/api/FE001/EnableOrDisableUser?UserID=${data.id}&EnableOrDisable=false`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
         console.log(result);
+        alert(result)
+        setReload(true)
       })
       .catch((error) => {
         console.log("error", error);
@@ -53,7 +77,7 @@ function AccountUser() {
           <td>{data.email}</td>
           <td>{data.roleName}</td>
           <td>
-            <img src={recyclebin} className="iconrecyclebin" />
+            <img src={recyclebin} className="iconrecyclebin" onClick={() => DeleteAc(data)} />
           </td>
         </tr>
   ));
@@ -61,7 +85,7 @@ function AccountUser() {
   return (
     <div>
       {Createnmodel && (
-            <ModelCreateUser setCreatenmodel={setCreatenmodel}/>
+            <ModelCreateUser setCreatenmodel={setCreatenmodel} setReload={setReload}/>
           )}
       {Filtermodel && <Filter setFiltermodel={setFiltermodel} />}
       {/* header Accounts */}
