@@ -99,6 +99,10 @@ function ModleManageCreateUser({ setCreatenmodel }) {
   const ManageCreacteUser = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
 
     var raw = JSON.stringify({
       UserName: Username,

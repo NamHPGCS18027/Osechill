@@ -41,7 +41,10 @@ function SidebarReaident({Userdetail}) {
         <img src={logo_sidebar} className="sidebarlogo" />
       </div>
       <div>
-        <NavLink to="/Issues_List" className="sidebaradmin">
+      <NavLink to="Issues_List"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="Issues_List"
@@ -53,22 +56,10 @@ function SidebarReaident({Userdetail}) {
           
           <span className="titleitem">Issues_List</span>
         </NavLink>
-        <NavLink to="Communication"
+        <NavLink to="MyIssue"
           className={({ isActive }) =>
             `sidebaradmin ${isActive ? "active" : ""}`
           }>
-        <Tooltip
-            placement="right"
-            title="Communication"
-            type="dark"
-            effect="solid"
-          >
-            <img src={communication_icon} className="sidebaritem" />
-          </Tooltip>
-          
-          <span className="titleitem">Communication</span>
-        </NavLink>
-        <div className="sidebaradmin">
         <Tooltip
             placement="right"
             title="My_Issues"
@@ -79,7 +70,7 @@ function SidebarReaident({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">My_Issues</span>
-        </div>
+        </NavLink>
         <NavLink to="Booking"
           className={({ isActive }) =>
             `sidebaradmin ${isActive ? "active" : ""}`
@@ -95,30 +86,6 @@ function SidebarReaident({Userdetail}) {
           
           <span className="titleitem">Bookings</span>
         </NavLink>
-        <div className="sidebaradmin">
-        <Tooltip
-            placement="right"
-            title="Services"
-            type="dark"
-            effect="solid"
-          >
-            <img src={services_icon} className="sidebaritem" />
-          </Tooltip>
-          
-          <span className="titleitem">Services</span>
-        </div>
-        <div className="sidebaradmin">
-        <Tooltip
-            placement="right"
-            title="Forums"
-            type="dark"
-            effect="solid"
-          >
-            <img src={forums_icon} className="sidebaritem" />
-          </Tooltip>
-          
-          <span className="titleitem">Forums</span>
-        </div>
         <div className="sidefooter">
           <ClickAwayListener onClickAway={handleTooltipClose}>
             <div>

@@ -3,16 +3,21 @@ import "./TaskST.css"
 import iconClosepopup from "../../image/Icon v3/icon_Close_popup.png";
 import avatar_icon from "../../image/Sidebar/More/avatar_icon.png";
 import { Url } from '../../Url/Url';
+import HighPriorityIssue from "../../image/Staff-icon/High-Priority-Issue.png"
+import HighestPriorityIssue from "../../image/Staff-icon/Highest-Priority-Issue.png"
+import LowPriorityIssue from "../../image/Staff-icon/Low-Priority-Issue.png"
+import LowestPriorityIssue from "../../image/Staff-icon/Lowest-Priority-Issue.png"
+import MediumPriorityIssue from "../../image/Staff-icon/Medium-Priority-Issue.png"
 
-function ModleManageTaskDetail({setTaskManageDetail}) {
+function ModleManageTaskDetail({setTaskManageDetail , detailtask}) {
 
   const [StaskAc, setStaskAc] = useState([])
+  const [taskid, settaskid] = useState('')
 
   useEffect(() => {
     GetAllAc()
   }, [])
   
-
   const GetAllAc = () => {
     var myHeaders = new Headers();
     myHeaders.append(
@@ -45,12 +50,37 @@ function ModleManageTaskDetail({setTaskManageDetail}) {
     </option>
   ));
 
+  const Assigntask = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+        "Authorization",
+        "Bearer " + sessionStorage.getItem("accessToken"));
+   
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + `/api/FE006/AssignIssueToStaff?staffID=${taskid}&issueID=${detailtask.id}`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        alert(result)
+        setreload(true)
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
   return (
     <div className="BackGroundResident">
       <div className="ResidentHeaderBackground">
       <div className="headerTitleDetaiTask">
           <img src={avatar_icon} className="AvatarTaskdetail"></img>
-          <span>User Name</span>
+          <span>{detailtask.authorName}</span>
           <br/>
           <span>Key : DA-00001</span>
       </div>
@@ -61,22 +91,35 @@ function ModleManageTaskDetail({setTaskManageDetail}) {
         />
       </div>
       <div className='backgrounddetailTaskbtn'>
-          <input className='detailTaskbtn'></input>
-          <div className='detailTaskbtn'>Add comment</div>
-          <select className='detailTaskinput'>
+          <select className='detailTaskinput' value={taskid} onChange={e => settaskid(e.target.value)}>
             <option>--</option>
             {AllManage}</select>
-          <div className='detailTaskbtn'>Assign</div>
+          <div className='detailTaskbtn' onClick={Assigntask}>Assign</div>
       </div>
       <div className='containerdetailTask'>
         <div className='TaskTableName'>Details</div>
-        <div className='detailTask'><span className='detailTaskTitle'>Summary</span> : Issue Title</div>
-        <div className='detailTask'><span className='detailTaskTitle'>Assignee</span> : Full Name</div>
-        <div className='detailTask'><span className='detailTaskTitle'>Day</span> : 11/24/2022</div>
-        <div className='detailTask'><span className='detailTaskTitle'>Time</span> : 9:52 pm</div>
-        <div className='detailTask'><span className='detailTaskTitle'>Distription</span> : ascascascascascacsasc</div>
-        <div className='detailTask'><span className='detailTaskTitle'>Priority</span> : Lowest</div>
-        <div className='detailTask'><span className='detailTaskTitle'>Status</span> : New</div>
+        <div className='detailTask'><span className='detailTaskTitle'>Summary</span> : {detailtask.title}</div>
+        <div className='detailTask'><span className='detailTaskTitle'>Author Name</span> : {detailtask.authorName}</div>
+        <div className='detailTask'><span className='detailTaskTitle'>Created Date</span> : {detailtask.createdDate}</div>
+        <div className='detailTask'><span className='detailTaskTitle'>last Modified Date</span> : {detailtask.lastModifiedDate}</div>
+        <div className='detailTask'><span className='detailTaskTitle'>Distription</span> : {detailtask.content}</div>
+        <div className='detailTask'><span className='detailTaskTitle'>Priority</span> : <span>{detailtask.priorityLevel == 5 ?
+              <img src={HighestPriorityIssue} className="IconPriority"/>
+              : detailtask.priorityLevel == 4 ?
+              <img src={HighPriorityIssue} className="IconPriority"/>
+              : detailtask.priorityLevel == 3 ?
+              <img src={MediumPriorityIssue} className="IconPriority"/>
+              : detailtask.priorityLevel == 2 ?
+              <img src={LowPriorityIssue} className="IconPriority"/>
+              : detailtask.priorityLevel == 1 ?
+              <img src={LowestPriorityIssue} className="IconPriority"/>
+              :
+              <div>--</div>
+            }
+            </span>
+              </div>
+        <div className='detailTask'><span className='detailTaskTitle'>Status</span> : {detailtask.status}</div>
+        <div className='detailTask'><span className='detailTaskTitle'>Feedback</span> : {detailtask.feedback}</div>
       </div>
     </div>
   )

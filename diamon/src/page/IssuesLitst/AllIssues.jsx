@@ -6,7 +6,7 @@ import Modelviewdetailissue from "./Modelviewdetailissue";
 import { Url } from "../../Url/Url";
 import { useEffect } from "react";
 
-function AllIssues() {
+function AllIssues({setreload}) {
   const [ViewIssueDetail, setViewIssueDetail] = useState(false)
   const [GetAllIssue, setGetAllIssue] = useState([])
   const token = sessionStorage.getItem("accessToken");
@@ -14,7 +14,7 @@ function AllIssues() {
   
   useEffect(() => {
     GetIssue();
-  }, [token]);
+  }, [token, setreload]);
 
   const GetIssue = () => {
     var myHeaders = new Headers();

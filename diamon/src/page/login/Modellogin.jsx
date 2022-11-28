@@ -73,10 +73,8 @@ function Modellogin({ setloginmodel }) {
       Navigate("/Admin_Accounts");
     } else if (result.role[0] === "resident") {
       Navigate("/Issues_List");
-    } else if (result.role[0] === "staffbt") {
-      Navigate("/Manage_Accounts");
     } else if (result.role[0] === "staffst") {
-      Navigate("/Manage_Accounts");
+      Navigate("/ST_TasK");
     } else if (result.role[0] === "blockManager") {
       Navigate("/Manage_Accounts");
     }

@@ -157,7 +157,7 @@
 }
 
 .containerdetailTask{
-    width: 300px;
+    width: 400px;
     margin: 20px;
     margin-left: 30px;
     padding: 10px;
@@ -217,4 +217,74 @@
     border-image-slice: 1;
     cursor: pointer;
     outline: none;
+}
+
+.noissued{
+    margin: 15px;
+    font-weight: 600;
+    color: #7d7979;
+    font-size: 20px;
+}
+
+.detailTaskbtnApprove{
+    background-color: green;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    float: left;
+    border-radius: 3px;
+    margin: 5px;
+    color: #FFFFFF;
+    font-size: 13px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.detailTaskbtnReject{
+    background-color: red;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    float: left;
+    border-radius: 3px;
+    margin: 5px;
+    color: #FFFFFF;
+    font-size: 13px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.backgroundFeedback{
+    margin-left: 30px;
+}
+
+.feedbacktitle{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.inputfeedback{
+    width: 300px;
+    margin-right: 10px;
+    outline: none;
+    border: 1px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.btnfeedback{
+    width: 80px;
+    background-color: #FFFFFF;
+    font-weight: 600;
+    border: 1px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    cursor: pointer;
+}
+
+.issutyle{
+    float: right;
+    margin-right: 20px;
 }

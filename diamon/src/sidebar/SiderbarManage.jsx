@@ -116,21 +116,6 @@ function SiderbarManage({Userdetail}) {
           
           <span className="titleitem">Manage_Accounts</span>
         </NavLink>
-        <NavLink to="Communication"
-          className={({ isActive }) =>
-            `sidebaradmin ${isActive ? "active" : ""}`
-          }>
-        <Tooltip
-            placement="right"
-            title="Communication"
-            type="dark"
-            effect="solid"
-          >
-            <img src={communication_icon} className="sidebaritem" />
-          </Tooltip>
-          
-          <span className="titleitem">Communication</span>
-        </NavLink>
         <div className="sidefooter">
           <ClickAwayListener onClickAway={handleTooltipClose}>
             <div>

@@ -12,9 +12,9 @@ function Sidebar() {
     const [Userdetail, setUserdetail] = useState({});
     const [role, setrole] = useState("");
     const token = sessionStorage.getItem("accessToken");
-    
+  
     useEffect(() => {
-      if(token != null){
+      if(token !== null){
         loadDataProfile()
       }
       }, [token])

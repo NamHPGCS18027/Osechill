@@ -10,10 +10,12 @@ import communications_icon from "../image/Sidebar/Not Selected/Staff/communicati
 import manage_services_icon from "../image/Sidebar/Not Selected/Staff/manage_services_icon.png";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function SidebarStaffSt({Userdetail}) {
   const [inactive, setinactive] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
+  const Navigate = useNavigate()
 
   const handleTooltipClose = () => {
     setOpenTooltip(false);
@@ -26,13 +28,21 @@ function SidebarStaffSt({Userdetail}) {
   const activebar = () => {
     setinactive(!inactive);
   };
+
+  const logout = () => {
+    sessionStorage.removeItem("accessToken")
+    Navigate("/")
+  }
   return (
     <div className={`Sitebarbr ${inactive ? "" : "inactive"}`}>
       <div onClick={() => activebar()}>
         <img src={logo_sidebar} className="sidebarlogo" />
       </div>
       <div>
-        <div className="sidebaradmin">
+      <NavLink to="ST_TasK"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
           <Tooltip
             placement="right"
             title="My_Tasks"
@@ -43,7 +53,7 @@ function SidebarStaffSt({Userdetail}) {
           </Tooltip>
 
           <span className="titleitem">My_Tasks</span>
-        </div>
+        </NavLink>
         <div className="sidebaradmin">
           <Tooltip
             placement="right"
@@ -109,7 +119,7 @@ function SidebarStaffSt({Userdetail}) {
                     <div className="allinforitem">
                       <div className="infoitem">My Profile</div>
                       <div className="infoitem">Add an existing account</div>
-                      <div className="infoitem">Logout </div>
+                      <div className="infoitem" onClick={logout}>Logout </div>
                     </div>
                   </div>
                 }
