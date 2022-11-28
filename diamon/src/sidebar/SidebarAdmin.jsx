@@ -76,7 +76,7 @@ function SidebarAdmin({Userdetail}) {
           </Tooltip>
           <span className="titleitem">AssignBlock</span>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/Communication"
           className={({ isActive }) =>
             `sidebaradmin ${isActive ? "active" : ""}`
@@ -96,7 +96,7 @@ function SidebarAdmin({Userdetail}) {
           <span className="titleitem">
             Communication
           </span>
-        </NavLink>
+        </NavLink> */}
 
         <div className="sidefooter">
           <ClickAwayListener onClickAway={handleTooltipClose}>

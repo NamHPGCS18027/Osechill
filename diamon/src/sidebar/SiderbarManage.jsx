@@ -12,10 +12,12 @@ import manage_accounts_icon from "../image/Sidebar/Not Selected/Manager/manage_a
 import communication_icon from "../image/Sidebar/Not Selected/Manager/communication_icon.png"
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function SiderbarManage({Userdetail}) {
   const [inactive, setinactive] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
+  const Navigate = useNavigate() ; 
 
   const handleTooltipClose = () => {
     setOpenTooltip(false);
@@ -28,13 +30,21 @@ function SiderbarManage({Userdetail}) {
   const activebar = () => {
     setinactive(!inactive);
   };
+
+  const logout = () => {
+    sessionStorage.removeItem("accessToken")
+    Navigate("/")
+  }
   return (
     <div className={`Sitebarbr ${inactive ? "" : "inactive"}`}>
       <div onClick={() => activebar()}>
         <img src={logo_sidebar} className="sidebarlogo" />
       </div>
       <div>
-        <div className="sidebaradmin">
+        {/* <NavLink to=""
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="New_Issue"
@@ -45,8 +55,11 @@ function SiderbarManage({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">New_Issue</span>
-        </div>
-        <div className="sidebaradmin">
+        </NavLink>
+        <NavLink to=""
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="Notifications"
@@ -57,8 +70,11 @@ function SiderbarManage({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">Notifications</span>
-        </div>
-        <div className="sidebaradmin">
+        </NavLink> */}
+        <NavLink to="ManageTask"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="Manage_Issues"
@@ -69,8 +85,11 @@ function SiderbarManage({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">Manage_Issues</span>
-        </div>
-        <div className="sidebaradmin">
+        </NavLink>
+        <NavLink to=""
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="Landlord_History"
@@ -81,8 +100,11 @@ function SiderbarManage({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">Landlord_History</span>
-        </div>
-        <div className="sidebaradmin">
+        </NavLink>
+        <NavLink to="Manage_Accounts"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="Manage_Accounts"
@@ -93,8 +115,11 @@ function SiderbarManage({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">Manage_Accounts</span>
-        </div>
-        <div className="sidebaradmin">
+        </NavLink>
+        <NavLink to="Communication"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="Communication"
@@ -105,7 +130,7 @@ function SiderbarManage({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">Communication</span>
-        </div>
+        </NavLink>
         <div className="sidefooter">
           <ClickAwayListener onClickAway={handleTooltipClose}>
             <div>
@@ -135,7 +160,7 @@ function SiderbarManage({Userdetail}) {
                     <div className="allinforitem">
                       <div className="infoitem">My Profile</div>
                       <div className="infoitem">Add an existing account</div>
-                      <div className="infoitem">Logout </div>
+                      <div className="infoitem" onClick={logout}>Logout </div>
                     </div>
                   </div>
                 }

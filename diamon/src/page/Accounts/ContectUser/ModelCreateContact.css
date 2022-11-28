@@ -66,10 +66,10 @@
 
 .backgroundContacts{
     width: 600px;
-    height: 600px;
+    height: 660px;
     margin: 0 auto;
     padding: 3px;
-    margin-top: 20px;
+    margin-top: 10px;
     border: 3px solid transparent;
 
     border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
@@ -81,6 +81,7 @@
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 20px;
 }
 
 .navbarContact{
@@ -124,5 +125,23 @@
     text-align: center;
     font-weight: 600;
     float: left;
+    cursor: pointer;
+}
+
+.inputContactsBlock{
+    border: 0;
+    width: 350px;
+    padding: 10px;
+    outline: none;
+    background-color: #fafafa;
+    font-weight: 600;
+}
+
+.btnblock{
+    background-color: #ffff;
+    width: 150px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
     cursor: pointer;
 }

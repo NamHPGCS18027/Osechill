@@ -1,16 +1,20 @@
-import React , {useState} from "react";
+import React , {useState , useEffect} from "react";
 import "./ModelCreateContact.css";
 import iconClosepopup from "../../../image/Icon v3/icon_Close_popup.png";
 import star from "../../../image/Icon v3/star.png";
 import Select from "react-select";
+import { Url } from "../../../Url/Url";
 
 function ModelCreatContect({ setCreateContact }) {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const options = [
-    { value: "ID 1 - Apartment Name 1", label: "ID 1 - Apartment Name 1" },
-    { value: "ID 2 - Apartment Name 2", label: "ID 2 - Apartment Name 2" },
-    { value: "ID 3 - Apartment Name 3", label: "ID 3 - Apartment Name 3" },
-  ];
+  const [selectedOption, setSelectedOption] = useState([]);
+  const [RedcidenAc, setRedcidenAc] = useState([])
+  const [startDate, setstartDate] = useState("")
+  const [residentID, setresidentID] = useState("")
+  const [endDate, setendDate] = useState("")
+  const [lastSignedDate, setlastSignedDate] = useState("")
+  const [AllBlock, setAllBlock] = useState([]);
+  const [AllApartment, setAllApartment] = useState([])
+  const [roleid, setroleid] = useState('')
 
   const customStyles = {
     control: (styles) => ({...styles,backgroundColor:"#FAFAFA00",color:"black",border:0,width: "500px",outline: "none",height: "30px"}),
@@ -36,8 +40,137 @@ function ModelCreatContect({ setCreateContact }) {
       }
     }
   };
+
+  useEffect(() => {
+    GetAllAc()
+    GetAllBlock()
+  }, [])
+  
+  const GetAllAc = () => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + `/api/FE001/GetAllUser?getActive=${true}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setRedcidenAc(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const filterTaskAcound = RedcidenAc.filter(function (RedcidenAc) {
+    return RedcidenAc.roleName[0] === "resident";
+  });
+
+  const FilterSelect = selectedOption.map(function (option){
+    return option.value;
+  });
+
+  const AllManage = filterTaskAcound.map((data) => (
+    <option key={data.id} value={data.id}>
+      {data.userName} - {data.roleName}
+    </option>
+  ));
+
+  const GetAllBlock = () => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + "/api/Block/GetAllBlock", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setAllBlock(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const BlockList = AllBlock.map((data) =>(
+    <option key={data.blockId} value={data.blockId}>{data.blockName}</option>
+  ))
+
+  const CreacteContactUser = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken"))
+
+    var raw = JSON.stringify({
+      listApartmentID: FilterSelect,
+      residentID:residentID,
+      startDate:startDate,
+      endDate:endDate,
+      lastSignedDate:lastSignedDate
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(Url+"/api/Contract/AddNewContract", requestOptions)
+      .then((response) => {
+        response.text();
+      })
+      .then((result) => {
+        console.log(result);
+        alert(result)
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const GetAllApartment = () => {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken")
+    );
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(Url + `/api/Apartment/GetAllApartmentInBlock?blockId=${roleid}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setAllApartment(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const options = AllApartment.map((data) => (
+    { value: data.apartmentId, label: data.apartmentName }
+  ))
   return (
     <div className="BackGroundResident">
+      <div className="modalContainerCreate">
       <div className="ResidentHeaderBackground">
         <div className="headerTitle">Create Contract</div>
         <img
@@ -53,10 +186,14 @@ function ModelCreatContect({ setCreateContact }) {
               User Acount
             <img src={star} className="staricon" /> :
           </div>
-          <input
+          <select
             className="inputContacts"
             placeholder="Input Full Name"
-          ></input>
+            value={residentID}
+            onChange={e => setresidentID(e.target.value)}
+          >
+            <option>--</option>
+            {AllManage}</select>
           <hr className="linecontact" />
         </div>
         <div className="backgroundInputContacts">
@@ -64,7 +201,7 @@ function ModelCreatContect({ setCreateContact }) {
             Start Date 
             <img src={star} className="staricon" /> :
           </div>
-          <input type="date" className="inputContacts" placeholder="Email User"></input>
+          <input type="datetime-local" className="inputContacts"  value={startDate} onChange={e => setstartDate(e.target.value)}></input>
           <hr className="linecontact" />
         </div>
         <div className="backgroundInputContacts">
@@ -73,9 +210,11 @@ function ModelCreatContect({ setCreateContact }) {
             <img src={star} className="staricon" /> :
           </div>
           <input
-            type="date"
+            type="datetime-local"
             className="inputContacts"
             placeholder="Day Start Contract"
+            value={endDate}
+            onChange={e => setendDate(e.target.value)}
           ></input>
           <hr className="linecontact" />
         </div>
@@ -85,10 +224,28 @@ function ModelCreatContect({ setCreateContact }) {
             <img src={star} className="staricon" /> :
           </div>
           <input
-            type="date"
+            type="datetime-local"
             className="inputContacts"
             placeholder="Day End Contract"
+            value={lastSignedDate}
+            onChange={e => setlastSignedDate(e.target.value)}
           ></input>
+          <hr className="linecontact" />
+        </div>
+        <div className="backgroundInputContacts">
+          <div className="TitleContacts">
+            Block
+            <img src={star} className="staricon" /> :
+          </div>
+          <select
+            className="inputContactsBlock"
+            value={roleid}
+            onChange={e => setroleid(e.target.value)}
+          >
+            <option>--</option>
+            {BlockList}
+          </select>
+          <button className="btnblock" onClick={GetAllApartment}>Seach Apartment</button>
           <hr className="linecontact" />
         </div>
         <div className="backgroundInputContacts">
@@ -104,7 +261,6 @@ function ModelCreatContect({ setCreateContact }) {
                     defaultValue={selectedOption}
                     isMulti
                     onChange={setSelectedOption}
-                    // className="SelectContacts"
                     styles={customStyles}
                     className="inputContacts"
                   />
@@ -118,9 +274,10 @@ function ModelCreatContect({ setCreateContact }) {
             <div>Cancel</div>
           </div>
           <div className="Createbtnuser">
-            <div>Create</div>
+            <div onClick={CreacteContactUser}>Create</div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

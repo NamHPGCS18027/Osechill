@@ -4,22 +4,20 @@ import logo_sidebar from "../image/Sidebar/Logo/logo_sidebar.png";
 import avatar_icon from "../image/Sidebar/Not Selected/Resident/avatar_icon.png";
 import bookings_icon from "../image/Sidebar/Not Selected/Resident/bookings_icon.png";
 import communication_icon from "../image/Sidebar/Not Selected/Resident/communication_icon.png";
-import entertainment_icon from "../image/Sidebar/Not Selected/Resident/entertainment_icon.png";
 import forums_icon from "../image/Sidebar/Not Selected/Resident/forums_icon.png";
 import issues_list_icon from "../image/Sidebar/Not Selected/Resident/issues_list_icon.png";
-import markets_icon from "../image/Sidebar/Not Selected/Resident/markets_icon.png";
 import more_icon from "../image/Sidebar/Not Selected/Resident/more_icon.png";
 import my_issues_icon from "../image/Sidebar/Not Selected/Resident/my_issues_icon.png";
-import notifications_icon from "../image/Sidebar/Not Selected/Resident/notifications_icon.png";
 import services_icon from "../image/Sidebar/Not Selected/Resident/services_icon.png";
 import active_icon from "../image/Sidebar/More/active_icon.png";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
-import { NavLink } from "react-router-dom";
+import { NavLink ,useNavigate} from "react-router-dom";
 
 function SidebarReaident({Userdetail}) {
   const [inactive, setinactive] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
+  const Navigate = useNavigate() ; 
 
   const handleTooltipClose = () => {
     setOpenTooltip(false);
@@ -32,6 +30,11 @@ function SidebarReaident({Userdetail}) {
   const activebar = () => {
     setinactive(!inactive);
   };
+
+  const logout = () => {
+    sessionStorage.removeItem("accessToken")
+    Navigate("/")
+  }
   return (
     <div className={`Sitebarbr ${inactive ? "" : "inactive"}`}>
       <div onClick={() => activebar()}>
@@ -50,19 +53,10 @@ function SidebarReaident({Userdetail}) {
           
           <span className="titleitem">Issues_List</span>
         </NavLink>
-        <div className="sidebaradmin">
-        <Tooltip
-            placement="right"
-            title="Notifications"
-            type="dark"
-            effect="solid"
-          >
-            <img src={notifications_icon} className="sidebaritem" />
-          </Tooltip>
-          
-          <span className="titleitem">Notifications</span>
-        </div>
-        <div className="sidebaradmin">
+        <NavLink to="Communication"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="Communication"
@@ -73,7 +67,7 @@ function SidebarReaident({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">Communication</span>
-        </div>
+        </NavLink>
         <div className="sidebaradmin">
         <Tooltip
             placement="right"
@@ -86,19 +80,10 @@ function SidebarReaident({Userdetail}) {
           
           <span className="titleitem">My_Issues</span>
         </div>
-        <div className="sidebaradmin">
-        <Tooltip
-            placement="right"
-            title="Entertainment"
-            type="dark"
-            effect="solid"
-          >
-            <img src={entertainment_icon} className="sidebaritem" />
-          </Tooltip>
-          
-          <span className="titleitem">Entertainment</span>
-        </div>
-        <div className="sidebaradmin">
+        <NavLink to="Booking"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
         <Tooltip
             placement="right"
             title="Bookings"
@@ -109,19 +94,7 @@ function SidebarReaident({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">Bookings</span>
-        </div>
-        <div className="sidebaradmin">
-        <Tooltip
-            placement="right"
-            title="Markets"
-            type="dark"
-            effect="solid"
-          >
-            <img src={markets_icon} className="sidebaritem" />
-          </Tooltip>
-          
-          <span className="titleitem">Markets</span>
-        </div>
+        </NavLink>
         <div className="sidebaradmin">
         <Tooltip
             placement="right"
@@ -175,7 +148,7 @@ function SidebarReaident({Userdetail}) {
                     <div className="allinforitem">
                       <div className="infoitem">My Profile</div>
                       <div className="infoitem">Add an existing account</div>
-                      <div className="infoitem">Logout </div>
+                      <div className="infoitem" onClick={logout}>Logout </div>
                     </div>
                   </div>
                 }

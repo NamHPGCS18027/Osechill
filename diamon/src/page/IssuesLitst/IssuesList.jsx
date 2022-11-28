@@ -21,6 +21,7 @@ function IssuesList() {
   const [CateId, setCateId] = useState([]);
   const [fileInput, setfileInput] = useState([]);
   const [cateupload, setcateupload] = useState("");
+  const [Title, setTitle] = useState("")
 
   const uploadIssue = () => {
     var myHeaders = new Headers();
@@ -30,6 +31,7 @@ function IssuesList() {
     );
 
     let formdata = new FormData();
+    formdata.append("title", Title);
     formdata.append("content", content);
     formdata.append("isPrivate", isPrivate);
     formdata.append("listFiles", fileInput, fileInput.name);
@@ -46,7 +48,7 @@ function IssuesList() {
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
-        alert(result);
+        alert("Your problem has been sent to the apartment manager");
       })
       .catch((error) => console.log("error", error));
   };
@@ -98,6 +100,12 @@ function IssuesList() {
             <img src={avatar_icon} className="SeackAvatarIssues" />
           </div>
           <div className="InputBackGrpundIssues">
+          <input
+              className="SeachIssuesTitle"
+              placeholder="Title"
+              value={Title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
             <input
               className="SeachIssuesTitle"
               placeholder="What's happening?"

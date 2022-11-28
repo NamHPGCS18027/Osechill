@@ -15,6 +15,8 @@ import ManageListUser from "./page/Accounts/ManageListUser";
 import ManageDeleteAcound from "./page/Accounts/ManageDeleteAcound";
 import TaskST from "./page/Task/TaskST";
 import AssignBlock from "./page/BlockManage/AssignBlock";
+import ManageTask from "./page/Task/ManageTask";
+import UserBooking from "./page/Booking/UserBooking";
 
 function App() {
   
@@ -36,6 +38,8 @@ function App() {
           <Route exact path="/Manage_Deleted_employees" element={<ManageDeleteAcound />} />
           <Route exact path="/ST_TasK" element={<TaskST />} />
           <Route exact path="/AssignBlock" element={<AssignBlock />} />
+          <Route exact path="/ManageTask" element={<ManageTask />} />
+          <Route exact path="/Booking" element={<UserBooking />} />
         </Routes>
       </div>
       {/* <AccountUser/> */}

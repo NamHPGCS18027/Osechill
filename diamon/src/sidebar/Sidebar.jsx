@@ -12,9 +12,11 @@ function Sidebar() {
     const [Userdetail, setUserdetail] = useState({});
     const [role, setrole] = useState("");
     const token = sessionStorage.getItem("accessToken");
-
+    
     useEffect(() => {
+      if(token != null){
         loadDataProfile()
+      }
       }, [token])
       
       const loadDataProfile = () => {
@@ -35,7 +37,6 @@ function Sidebar() {
                 }
             })
             .then(result => {
-                console.log('result',result)
                 setUserdetail(result);
                 setrole(result.role);
             })
@@ -53,7 +54,7 @@ function Sidebar() {
         SideBarRole = (<SidebarStaffBt Userdetail={Userdetail}/>)
       } else if(role[0]==="staffst"){
         SideBarRole = (<SidebarStaffSt Userdetail={Userdetail}/>)
-      } else if(role[0]==="manage"){
+      } else if(role[0]==="blockManager"){
         SideBarRole = (<SiderbarManage Userdetail={Userdetail}/>)
       }
   return (

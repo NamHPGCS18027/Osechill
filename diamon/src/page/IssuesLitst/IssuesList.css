@@ -72,7 +72,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     width: 828px;
-    height: 145px;
+    height: 170px;
     background: #FFFFFF;
     border: 1px solid transparent;
     border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
@@ -198,6 +198,7 @@
 }
 
 .DobIssues {
+    width: 350px;
     font-size: 14px;
     font-weight: 600;
     color: #787B7C;
@@ -231,7 +232,6 @@
 
 .ImageIssues{
     width: 700px;
-    height: 350px;
     margin-left: 60px;
 }
 
@@ -540,4 +540,105 @@
     border: 0;
     color: #787B7C;
     font-size: 12px;
+}
+
+.modalBackgroundIssue {
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    top: 0;
+    height: 100vh;
+    width: calc(100%);
+    overflow: auto;
+}
+
+.modalContainerIssue {
+    position: relative;
+    margin-left: 150px;
+    background-color: #ffffff;
+    padding: 10px;
+    width: 1020px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+}
+
+.btnViewdetailIssue{
+    float: right;
+    width: 100px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    cursor: pointer;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.LineSeachIssues2 {
+    border: 0.5px solid;
+    border-image: linear-gradient(90deg, #8bd5d266 -6.41%, #0910ea57 42.86%, #b856b867 100.36%);
+    border-image-slice: 1;
+    width: 100%;
+}
+
+.CategoryIssuesTitle1 {
+    width: 900px;
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.ImageIssuesdetail{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.CategoryIssuesName1 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: #787B7C;
+}
+
+.DetailCmtcontainer1{
+    margin: 0 auto;
+    background-color: #FAFAFA;
+    width: 100%;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+}
+
+.UserNameIssues1 {
+    font-size: 15px;
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+.closeIconIssue {
+    height: 30px;
+    width: 30px;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.backgroundImg{
+    width: 100%;
+}
+
+.detailReplyQuote{
+    height: 30px;
 }

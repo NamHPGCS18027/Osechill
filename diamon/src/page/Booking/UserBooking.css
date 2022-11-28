@@ -1,0 +1,32 @@
+.backgroundBooking{
+    width: 330px;
+    height: 330px;
+}
+
+.bookingService{
+    margin-left: 20px;
+}
+
+.bookingcontainer{
+    width: 300px;
+    padding: 20px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    margin: 10px;
+}
+
+.btnaddbooking{
+    background-color: #ffff;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    font-weight: 600;
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
+}

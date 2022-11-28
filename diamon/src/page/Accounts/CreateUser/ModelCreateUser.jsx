@@ -92,7 +92,10 @@ function ModelCreateUser({ setCreatenmodel ,setReload}) {
   const AdminCreacteUser = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + sessionStorage.getItem("accessToken"))
+      
     var raw = JSON.stringify({
       UserName: Username,
       fullname: fullname,
@@ -124,7 +127,7 @@ function ModelCreateUser({ setCreatenmodel ,setReload}) {
       })
       .then((result) => {
         console.log(result);
-        alert(result.message)
+        alert("Check User Email")
         setReload(true)
       })
       .catch((error) => {

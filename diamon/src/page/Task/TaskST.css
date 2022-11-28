@@ -174,14 +174,14 @@
 .detailTaskbtn{
     background-color: #8D8F8F;
     width: 120px;
-    height: 25px;
+    height: 30px;
     text-align: center;
     float: left;
     border-radius: 3px;
     margin: 5px;
     color: #FFFFFF;
     font-size: 13px;
-    line-height: 25px;
+    line-height: 30px;
     cursor: pointer;
 }
 
@@ -189,4 +189,32 @@
     width: 800px;
     height: 60px;
     padding: 25px;
+}
+
+.taskHeader{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(136, 134, 134, 0.462);
+}
+
+.IconPriority{
+    width: 25px;
+    height: 25px;
+}
+
+.detailTaskinput{
+    width: 150px;
+    height: 30px;
+    float: left;
+    margin: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 25px;
+    padding: 2px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    cursor: pointer;
+    outline: none;
 }

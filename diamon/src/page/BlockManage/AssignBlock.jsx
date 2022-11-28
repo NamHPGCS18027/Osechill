@@ -149,8 +149,12 @@ function AssignBlock() {
       </div>
       <div className="backgroundAddblockmanage">
         <div className="titleAddManage">Add Block Manage</div>
-        <select className="SelectManage" value={userId} onChange={e => setuserId(e.target.value)}>{AllManage}</select>
-        <select className="SelectBlock" value={blockId} onChange={e => setblockId(e.target.value)}>{BlockName}</select>
+        <select className="SelectManage" value={userId} onChange={e => setuserId(e.target.value)}>
+          <option>--</option>
+          {AllManage}</select>
+        <select className="SelectBlock" value={blockId} onChange={e => setblockId(e.target.value)}>
+          <option>--</option>
+          {BlockName}</select>
         <button className="BtnAddManage" onClick={AssignBlockManage}>Add Manage</button>
       </div>
       <table>

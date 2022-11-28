@@ -41,7 +41,7 @@ function Modellogin({ setloginmodel }) {
       })
       .catch((error) => {
         console.log("error", error);
-        alert("EMAIL OR PASSWORD ERROR");
+        alert(error);
       });
   };
 
@@ -77,7 +77,7 @@ function Modellogin({ setloginmodel }) {
       Navigate("/Manage_Accounts");
     } else if (result.role[0] === "staffst") {
       Navigate("/Manage_Accounts");
-    } else if (result.role[0] === "manage") {
+    } else if (result.role[0] === "blockManager") {
       Navigate("/Manage_Accounts");
     }
   };
