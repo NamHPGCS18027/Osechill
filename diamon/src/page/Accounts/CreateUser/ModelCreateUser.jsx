@@ -248,6 +248,7 @@ function ModelCreateUser({ setCreatenmodel ,setReload}) {
                 Nationality <img src={star} className="staricon" />
                 <div>
                   <select id="Nationality" className="inputNationality" value={nationality} onChange={e => setnationality(e.target.value)}>
+                    <option>--</option>
                     {National}
                   </select>
                 </div>
@@ -260,6 +261,7 @@ function ModelCreateUser({ setCreatenmodel ,setReload}) {
                 Country <img src={star} className="staricon" />
                 <div>
                   <select id="Country" className="inputCountry" value={country} onChange={e => setcountry(e.target.value)}>
+                    <option>--</option>
                     {National}
                   </select>
                 </div>
@@ -295,6 +297,7 @@ function ModelCreateUser({ setCreatenmodel ,setReload}) {
                 ID Type <img src={star} className="staricon" />
                 <div>
                   <select id="Country" className="inputCountry" value={idType} onChange={ e => setidType(e.target.value)}>
+                    <option>--</option>
                     <option value="citizen identification">Citizen Identification</option>
                     <option value="Passport">Passport</option>
                   </select>
@@ -318,7 +321,7 @@ function ModelCreateUser({ setCreatenmodel ,setReload}) {
                 Role <img src={star} className="staricon" />
                 <div>
                   <select id="role" className="inputrole" value={roleID} onChange={ e => setroleID(e.target.value)}>
-                    <option value=""></option>
+                    <option value="">--</option>
                     {ListRole}
                   </select>
                 </div>
@@ -353,6 +356,7 @@ function ModelCreateUser({ setCreatenmodel ,setReload}) {
                 Country Code <img src={star} className="staricon" />
                 <div>
                   <select id="Country" className="inputCountry" value={phoneCountryCode} onChange={ e => setphoneCountryCode(e.target.value)}>
+                  <option>--</option>
                     {Phonecode}
                   </select>
                 </div>

@@ -5,9 +5,7 @@ import avatar_icon from "../image/Sidebar/Not Selected/Resident/avatar_icon.png"
 import more_icon from "../image/Sidebar/Not Selected/Resident/more_icon.png";
 import active_icon from "../image/Sidebar/More/active_icon.png";
 import my_tasks_icon from "../image/Sidebar/Not Selected/Staff/my_tasks_icon.png";
-import notifications_icon from "../image/Sidebar/Not Selected/Staff/notifications_icon.png";
-import communications_icon from "../image/Sidebar/Not Selected/Staff/communications_icon.png";
-import manage_services_icon from "../image/Sidebar/Not Selected/Staff/manage_services_icon.png";
+import bookings_icon from "../image/Sidebar/Not Selected/Resident/bookings_icon.png";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -54,42 +52,22 @@ function SidebarStaffSt({Userdetail}) {
 
           <span className="titleitem">My_Tasks</span>
         </NavLink>
-        <div className="sidebaradmin">
+        <NavLink to="Staff_Booking"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
           <Tooltip
             placement="right"
-            title="Notifications"
+            title="Booking View"
             type="dark"
             effect="solid"
           >
-            <img src={notifications_icon} className="sidebaritem" />
+            <img src={bookings_icon} className="sidebaritem" />
           </Tooltip>
 
-          <span className="titleitem">Notifications</span>
-        </div>
-        <div className="sidebaradmin">
-          <Tooltip
-            placement="right"
-            title="Communication"
-            type="dark"
-            effect="solid"
-          >
-            <img src={communications_icon} className="sidebaritem" />
-          </Tooltip>
-
-          <span className="titleitem">Communication</span>
-        </div>
-        <div className="sidebaradmin">
-          <Tooltip
-            placement="right"
-            title="Manage_Services"
-            type="dark"
-            effect="solid"
-          >
-            <img src={manage_services_icon} className="sidebaritem" />
-          </Tooltip>
-
-          <span className="titleitem">Manage_Services</span>
-        </div>
+          <span className="titleitem">Booking View</span>
+        </NavLink>
+        
         <div className="sidefooter">
           <ClickAwayListener onClickAway={handleTooltipClose}>
             <div>

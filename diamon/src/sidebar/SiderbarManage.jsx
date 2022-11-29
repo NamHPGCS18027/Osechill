@@ -86,21 +86,6 @@ function SiderbarManage({Userdetail}) {
           
           <span className="titleitem">Manage_Issues</span>
         </NavLink>
-        <NavLink to=""
-          className={({ isActive }) =>
-            `sidebaradmin ${isActive ? "active" : ""}`
-          }>
-        <Tooltip
-            placement="right"
-            title="Landlord_History"
-            type="dark"
-            effect="solid"
-          >
-            <img src={landlord_history_icon} className="sidebaritem" />
-          </Tooltip>
-          
-          <span className="titleitem">Landlord_History</span>
-        </NavLink>
         <NavLink to="Manage_Accounts"
           className={({ isActive }) =>
             `sidebaradmin ${isActive ? "active" : ""}`

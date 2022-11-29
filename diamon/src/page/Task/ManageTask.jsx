@@ -91,7 +91,7 @@ function ManageTask() {
       {TaskManageDetail && <ModleManageTaskDetail setTaskManageDetail={setTaskManageDetail} detailtask={detailtask}/>}
      <div className="taskHeader">
      <div className="backgroundContact">
-          <div className={`${TaskTable== false ? "navbarContact" :"navbarContactAfter"}`} onClick={() => setTaskTable(false)}>STATISTICS</div>
+          {/* <div className={`${TaskTable== false ? "navbarContact" :"navbarContactAfter"}`} onClick={() => setTaskTable(false)}>STATISTICS</div> */}
           <div className={`${TaskTable==true ?"navbarContact1" : "navbarContact1After"}`} onClick={() => setTaskTable(true)}>MY TASK</div>
         </div>
      </div>

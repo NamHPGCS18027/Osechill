@@ -18,6 +18,7 @@ import AssignBlock from "./page/BlockManage/AssignBlock";
 import ManageTask from "./page/Task/ManageTask";
 import UserBooking from "./page/Booking/UserBooking";
 import AllMyIssue from "./page/IssuesLitst/AllMyIssue";
+import StaffBooking from "./page/Booking/StaffBooking";
 
 function App() {
   
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="/ManageTask" element={<ManageTask />} />
           <Route exact path="/Booking" element={<UserBooking />} />
           <Route exact path="/MyIssue" element={<AllMyIssue />} />
+          <Route exact path="/Staff_Booking" element={<StaffBooking />} />
         </Routes>
       </div>
       {/* <AccountUser/> */}

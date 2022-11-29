@@ -160,6 +160,7 @@
     width: 400px;
     margin: 20px;
     margin-left: 30px;
+    float: left;
     padding: 10px;
     border: 3px solid transparent;
     border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
@@ -264,7 +265,7 @@
 }
 
 .inputfeedback{
-    width: 300px;
+    width: 335px;
     margin-right: 10px;
     outline: none;
     border: 1px solid transparent;
@@ -287,4 +288,19 @@
 .issutyle{
     float: right;
     margin-right: 20px;
+}
+
+.Backgrounddetailtask{
+    width: 900px;
+    margin-top: 10px;
+}
+
+.feadbackimg{
+    width: 375px;
+    margin: 0 auto;
+}
+
+.titlefeedback{
+    font-size: 15px;
+    font-weight: 600;
 }
