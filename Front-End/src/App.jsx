@@ -24,7 +24,6 @@ function App() {
   
   return (
     <div className="App">
-      {/* <Sidebar/> */}
         <Routes>
           <Route exact path="/" element={<Homepage />} />
         </Routes>
@@ -46,10 +45,6 @@ function App() {
           <Route exact path="/Staff_Booking" element={<StaffBooking />} />
         </Routes>
       </div>
-      {/* <AccountUser/> */}
-      {/* <DeleteUser/> */}
-      {/* <Chat/> */}
-      {/* <TestChat/> */}
     </div>
   );
 }
