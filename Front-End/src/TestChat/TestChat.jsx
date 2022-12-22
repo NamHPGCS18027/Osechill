@@ -56,7 +56,6 @@ function TestChat() {
   const sendMessage = async (message) => {
     try {
       const Authorization1 = sessionStorage.getItem("accessToken");
-      const Authorization = "Bearer " + sessionStorage.getItem("accessToken");
       const receiverId = "6fff3de4-3d25-4713-8985-43e390ed951f";
       const connection = new HubConnectionBuilder()
         .withUrl("https://localhost:7175/chathub", {

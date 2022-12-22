@@ -204,6 +204,7 @@
 .ChatHeaderItemName{
     font-size: 12px;
     font-weight: 700;
+    height: 20px;
 }
 
 .ChatHeaderItemProfile{
@@ -291,9 +292,10 @@
 }
 
 .message{
-    /* position: fixed; */
-    background-color: #575DB7;
-    height: 75%;
+    background-color: #F5F5F5;
+    overflow: auto;
+    width: 100%;
+    height: 80%;
     margin-right: 550px;
 }
 
@@ -392,4 +394,64 @@ th, td {
     color: black;
     border: 1px solid rgba(0, 0, 0, 0.325);
     margin-left: 3px;
+}
+
+.SendMessagebtn{
+    width: 25px;
+    height: 50px;
+    margin: 10px;
+    margin-right: 0;
+    float:right;
+    cursor: pointer;
+    background-color: #4b494800;
+    border: 0;
+}
+
+.chatvalue{
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    width:fit-content;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+
+.backgroundchatmessage{
+    position: relative;
+    width: 90%;
+    margin: 5px;
+}
+
+.chatcontainerselect{
+    position:fixed;
+    background: #F5F5F5;
+    width: 100%;
+    /* width: 71%; */
+    height: 100%;
+    margin-left: 455px;
+    float: left;
+    line-height: 500px;
+    font-size: 50px;
+    font-weight: 600;
+    color: #dee2e6;
+}
+
+.valuecontainer{
+    margin-left: 300px;
+}
+
+.thisuser{
+    margin-left: 800px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(93.82deg, #8BD5D3 0%, #575DB7 35.24%, #B856B8 96.78%);
+    border-image-slice: 1;
+    width:fit-content;
+    font-size: 13px;
+    font-weight: 600;
 }

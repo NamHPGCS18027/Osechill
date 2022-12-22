@@ -61,6 +61,7 @@ function Modellogin({ setloginmodel }) {
       .then((response) => response.json())
       .then((result) => {
         console.log("result", result);
+        sessionStorage.setItem("Name", result.username);
         loginSucces(result);
       })
       .catch((error) => {

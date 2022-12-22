@@ -9,7 +9,9 @@ import my_issues_icon from "../image/Sidebar/Not Selected/Resident/my_issues_ico
 import active_icon from "../image/Sidebar/More/active_icon.png";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import communications_icon from '../image/Sidebar/Not Selected/Staff/communications_icon.png'
 import { NavLink ,useNavigate} from "react-router-dom";
+import {HubConnectionBuilder , LogLevel} from '@microsoft/signalr'
 
 function SidebarReaident({Userdetail}) {
   const [inactive, setinactive] = useState(false);
@@ -82,6 +84,21 @@ function SidebarReaident({Userdetail}) {
           </Tooltip>
           
           <span className="titleitem">Bookings</span>
+        </NavLink>
+        <NavLink to="Communication"
+          className={({ isActive }) =>
+            `sidebaradmin ${isActive ? "active" : ""}`
+          }>
+        <Tooltip
+            placement="right"
+            title="Communication"
+            type="dark"
+            effect="solid"
+          >
+            <img src={communications_icon} className="sidebaritem" />
+          </Tooltip>
+          
+          <span className="titleitem">Communication</span>
         </NavLink>
         <div className="sidefooter">
           <ClickAwayListener onClickAway={handleTooltipClose}>

@@ -43,6 +43,7 @@ function App() {
           <Route exact path="/Booking" element={<UserBooking />} />
           <Route exact path="/MyIssue" element={<AllMyIssue />} />
           <Route exact path="/Staff_Booking" element={<StaffBooking />} />
+          <Route exact path="/TestChat" element={<TestChat />} />
         </Routes>
       </div>
     </div>
